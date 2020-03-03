@@ -1,0 +1,738 @@
+﻿html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del,
+dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup,
+tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ol {
+  padding-left: 1.4em;
+  list-style: decimal;
+}
+
+ul {
+  list-style: square;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  height: 670px;
+  min-width: 300px;
+  user-select: none;
+  background-color: #FFFFFF;
+  -webkit-touch-callout: none;
+  overflow: hidden !important;
+  -webkit-tap-highlight-color: rgba(255,255,255,0.0);
+}
+
+#wrapper {
+  border: 0;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden !important;
+  background: url("resources/image/pattern.png") repeat;
+}
+
+#transparent {
+  left: 0;
+  right: 0;
+  height: 12px;
+  position: absolute;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.60) 0%,rgba(0,0,0,0) 100%);
+}
+
+#workingContent {
+  margin: 0 34px;
+  padding: 0 10px;
+  box-shadow: -1px 1px 0 #505050, 1px 1px 0 #505050;
+}
+
+#topSection {
+  width: 100%;
+  height: 84px;
+  display: flex;
+  direction: rtl;
+  padding-top: 0;
+  position: relative;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.recordOn svg {
+  fill: red !important;
+}
+
+#topSection #menuIcon {
+  color: #ddd;
+}
+
+#topSection #smallPiano {
+  border: 0;
+  width: 65%;
+  height: 52px;
+  cursor: pointer;
+  overflow: hidden;
+  max-width: 900px;
+  position: relative;
+  background: url("resources/image/smallpiano.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+
+#topSection .buttonWrapper {
+  width: 42px;
+  height: 42px;
+  position: relative;
+}
+
+#topSection .navigationButton {
+  border: 0;
+  z-index: 50;
+  height: 42px;
+  color: #ececec;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  line-height: 42px;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+  transition: 300ms ease background-color;
+}
+
+#topSection .navigationButton:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+#topSection .navigationButton svg {
+  fill: #ececec;
+  vertical-align: middle;
+}
+
+#topSection #smallPiano #handle {
+  left: 0;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  will-change: left;
+  position: absolute;
+  pointer-events: none;
+  transition: transform 50ms;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#mainSection {
+  padding: 0;
+  height: 410px;
+  overflow: hidden;
+  border-left: none;
+  border-right: none;
+  padding-bottom: 10px;
+  background-color: transparent;
+}
+
+#transparentShadow {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+}
+
+#sidebar {
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  color: #000;
+  width: 300px;
+  z-index: 111;
+  height: 100%;
+  right: -305px;
+  position: fixed;
+  font-size: 12px;
+  transition: 1000ms;
+  box-sizing: border-box;
+  background-color: #FFF;
+  -moz-transition: 1000ms;
+  -webkit-transition: 1000ms;
+  border-left: 1px solid #777;
+}
+
+#sidebar h1, #sidebar h2 {
+  margin: 0;
+  border: 0;
+  color: #FFF;
+  padding: 10px;
+  font-size: 12px;
+  text-align: left;
+  font-weight: normal;
+  background-color: #404040;
+  font-family: arial,sans-serif;
+}
+
+#sidebar h1 span {
+  float: right;
+  margin: -1px -4px 0 0;
+  vertical-align: middle;
+}
+
+#sidebar h1 svg {
+  fill: #ececec;
+  vertical-align: middle;
+}
+
+#sidebar table {
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: normal;
+  font-family: arial,sans-serif;
+}
+
+#sidebar table td {
+  color: #333;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+#sidebar table td:first-of-type {
+  width: 60%;
+}
+
+table td:last-of-type {
+  width: 40%;
+}
+
+#sidebar table #lblNumberOfKeys {
+  font-weight: bold;
+}
+
+#sidebar table #range {
+  padding: 0;
+  width: 100%;
+  height: 32px;
+  border-radius: 5px;
+  list-style-type: none;
+  border: 1px solid #bbb;
+}
+
+#sidebar table #range li {
+  width: 50%;
+  color: #777;
+  float: right;
+  height: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 28px;
+  text-align: center;
+  font-family: monospace;
+  transition: 300ms ease color;
+}
+
+#sidebar table #range li:first-of-type {
+  border-left: 1px solid #dedede;
+}
+
+#sidebar table #range li:hover {
+  color: #333;
+}
+
+#sidebar .toggle {
+  width: 100%;
+  height: 3px;
+  position: relative;
+  background-color: #bbb;
+}
+
+#sidebar .toggle span {
+  right: 0;
+  top: -9px;
+  width: 50%;
+  height: 21px;
+  display: block;
+  cursor: pointer;
+  position: absolute;
+}
+
+#onAndOff {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0,0,0,0.2);
+  border: 1px solid rgba(200,200,200,0.4);
+}
+
+#onAndOff #onAndOffHandle {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+#sidebar #lnkClose:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#sidebar #lnkResetSettings:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+ul#piano {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 300%;
+  height: 100%;
+  margin-top: 1px;
+  overflow: hidden;
+  transition: transform 300ms;
+  -moz-transition: transform 300ms;
+  -webkit-transition: transform 300ms;
+}
+
+ul#piano .anchor {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  float: left;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  margin-right: 1px;
+  position: relative;
+  background-color: #FFFFFF;
+}
+
+.active {
+  background-color: #efefef !important;
+}
+
+.active:before {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(0,0,0,0.5);
+}
+
+.active:after {
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-style: solid;
+  border-color: transparent rgba(0,0,0,0.5) transparent transparent;
+}
+
+ul#piano li label.keyName {
+  left: 0;
+  right: 0;
+  padding: 0;
+  bottom: 3px;
+  font-size: 12px;
+  margin-left: auto;
+  line-height: 22px;
+  text-align: center;
+  margin-right: auto;
+  position: absolute;
+  pointer-events: none;
+  display: inline-block;
+  font-family: monospace;
+  width: calc(100% - 5px);
+}
+
+ul#piano li label.color1 {
+  background-color: #cccccc;
+}
+
+ul#piano li label.color2 {
+  background-color: #caabab;
+}
+
+ul#piano li label.color3 {
+  background-color: #f7b69c;
+}
+
+ul#piano li label.color4 {
+  background-color: #ede6a9;
+}
+
+ul#piano li label.color5 {
+  background-color: #b1f5b1;
+}
+
+ul#piano li label.color6 {
+  background-color: #7ad8d4;
+}
+
+ul#piano li label.color7 {
+  background-color: #8dafeb;
+}
+
+ul#piano li label.color8 {
+  background-color: #e0b6e0;
+}
+
+ul#piano li label#C8 {
+  background-color: #ddccdd;
+}
+
+ul#piano li .blackKey {
+  top: 0;
+  padding: 0;
+  width: 55%;
+  left: -30%;
+  height: 60%;
+  position: absolute;
+}
+
+ul#piano li .blackKey span {
+  width: 100%;
+  z-index: 10;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  background: #333;
+  border-style: solid;
+  pointer-events: none;
+  border-width: 1px 2px 3px;
+  border-color: #666 #222 #111 #555;
+  background: linear-gradient(-30deg, #333, #000, #333);
+  box-shadow: inset 0 -1px 2px rgba(255,255,255,0.4),0 1px 1px rgba(0,0,0,0.1);
+}
+
+ul#piano li .blackKey span.blackKeyActive {
+  border-bottom-width: 2px;
+}
+
+#keyboardWrapper {
+  border: 0;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1px !important;
+  background: url('resources/image/pattern.png') repeat;
+}
+
+#container {
+  margin: auto;
+  width: 850px;
+  height: 178px;
+  padding: 5px 0;
+  min-width: 850px;
+  max-width: 850px;
+  text-align: center;
+  background-color: transparent;
+}
+
+#keyboard {
+  width: 100%;
+  margin: auto;
+  list-style: none;
+}
+
+#keyboard li {
+  margin: 0;
+  color: #555;
+  float: left;
+  width: 48px;
+  height: 42px;
+  font-size: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: 42px;
+  position: relative;
+  text-align: center;
+  font-family: monospace;
+  background-color: #FFFFFF;
+  border-right: solid 1px rgba(0,0,0,0.35);
+  border-bottom: solid 1px rgba(0,0,0,0.35);
+}
+
+#keyboard li:hover {
+  background-color: #efefef;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+#keyboard li span {
+  pointer-events: none;
+}
+
+.capslock, .tab, .left-shift {
+  clear: left;
+}
+
+.diableKeys {
+  cursor: not-allowed !important;
+  background-color: #e4e4e4 !important;
+}
+
+#keyboard .tab, #keyboard .delete {
+  width: 82px;
+}
+
+#keyboard .capslock {
+  width: 100px;
+}
+
+#keyboard .return {
+  width: 78px;
+}
+
+#keyboard .left-shift {
+  width: 115px;
+}
+
+#keyboard .right-shift {
+  width: 111px;
+}
+
+.lastitem {
+  margin-right: 0;
+}
+
+.keyboardLabel {
+  color: #555;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.keyboardActive {
+  color: #000 !important;
+  transition: all 0.2s ease-in-out;
+  background-color: #999 !important;
+}
+
+.keyboardActive .keyboardLabel {
+  color: #000;
+}
+
+.blackSign {
+  z-index: 1;
+  width: 16px;
+  right: -8px;
+  height: 16px;
+  bottom: -8px;
+  display: block;
+  position: absolute;
+  background-color: #555;
+  transform: rotate(45deg);
+}
+
+#recordedFileWrapper {
+  overflow-y: scroll;
+  height: calc(100% - 258px);
+}
+
+#tblRecordedFiles tr td {
+  padding: 5px;
+}
+
+#tblRecordedFiles tr td:first-of-type {
+  text-align: center;
+  width: 16px !important;
+}
+
+#tblRecordedFiles tr td:nth-of-type(2) {
+  width: 100%;
+}
+
+#tblRecordedFiles tr td:last-of-type {
+  width: 20%;
+  text-align: center;
+}
+
+#tblRecordedFiles tr {
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.playRecoredFile, .deleteRecordedFile, .downloadRecoredFile {
+  width: 24px;
+  height: 24px;
+  color: white;
+  display: block;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  font-family: monospace;
+  background-color: #aaaaaa;
+  transition: 300ms ease background-color;
+}
+
+.playRecoredFile.icon-play {
+  background: #aaaaaa url("resources/image/play.png") no-repeat center center;
+}
+
+.playRecoredFile.icon-stop {
+  background: #aaaaaa url("resources/image/stop.png") no-repeat center center;
+}
+
+.playRecoredFile {
+  background-size: 8px !important;
+}
+
+.deleteRecordedFile {
+  font-size: 8px;
+  line-height: 26px;
+}
+
+.downloadRecoredFile {
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.playRecoredFile:hover {background-color: #404040}
+.deleteRecordedFile:hover {background-color: #cf0404}
+.downloadRecoredFile:hover {background-color: #404040}
+
+#inputBoxWrapper, #deleteBoxWrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  display: none;
+  position: fixed;
+  background-color: rgba(0,0,0,.8);
+}
+
+#inputBox, #deleteBox {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 320px;
+  font-size: 12px;
+  padding: 10px 2px;
+  position: absolute;
+  background-color: #FFF;
+  box-shadow: 0 0 0 0 #000;
+  font-family: arial,sans-serif;
+}
+
+#inputBox {
+  height: 124px;
+}
+
+#deleteBox {
+  height: 106px;
+}
+
+#inputBox h1, #deleteBox h1 {
+  color: #FFF;
+  height: 36px;
+  font-size: 12px;
+  line-height: 34px;
+  text-align: center;
+  margin: -10px -2px;
+  border-bottom: none;
+  border: 1px solid #FFFFFF;
+  background-color: #404040;
+  font-family: arial,sans-serif;
+}
+
+#inputBox table, #deleteBox table {
+  margin-top: 20px;
+  font-family: inherit;
+}
+
+#inputBox table td, #deleteBox table td {
+  padding: 3px;
+}
+
+#inputBox table td:first-of-type,
+#deleteBox table td:first-of-type {
+  width: 15%;
+  padding-left: 5px;
+}
+
+#inputBox .saveControls, #deleteBox .saveControls {
+  width: 64px;
+  color: #FFF;
+  height: 32px;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 32px;
+  text-align: center;
+  display: inline-block;
+  background-color: #404040;
+  font-family: arial,sans-serif;
+}
+
+#inputBox #txtSaveRecordFile {
+  width: 100%;
+  height: 32px;
+  outline: none;
+  padding-left: 5px;
+  border: solid 1px rgba(0,0,0,0.2);
+}
+
+.toolbar {
+	top: 0;
+  right: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 11;
+	display: block;
+	text-align: right;
+  position: absolute;
+	background-color: transparent;
+}
+
+.toolbar div {
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	line-height: 32px;
+	text-align: center;
+	background-color: transparent;
+}
+
+.toolbar div svg {
+	fill: #ececec;
+	pointer-events: none;
+	vertical-align: middle;
+}

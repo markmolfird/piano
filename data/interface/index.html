@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Piano Prime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="resources/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id="keyboardWrapper">
+      <div id="container">
+        <ul id="keyboard">
+          <li id="keyA0"><span class="keyboardLabel">(A0)</span><span class="blackSign"></span></li>
+          <li id="keyB0" class="symbol">1 <span class="keyboardLabel">(B0)</span></li>
+          <li id="keyC1" class="symbol">2 <span class="keyboardLabel">(C1)</span><span class="blackSign"></span></li>
+          <li id="keyD1" class="symbol">3 <span class="keyboardLabel">(D1)</span><span class="blackSign"></span></li>
+          <li id="keyE1" class="symbol">4 <span class="keyboardLabel">(E1)</span></li>
+          <li id="keyF1" class="symbol">5 <span class="keyboardLabel">(F1)</span><span class="blackSign"></span></li>
+          <li id="keyG1" class="symbol">6 <span class="keyboardLabel">(G1)</span><span class="blackSign"></span></li>
+          <li id="keyA1" class="symbol">7 <span class="keyboardLabel">(A1)</span><span class="blackSign"></span></li>
+          <li id="keyB1" class="symbol">8 <span class="keyboardLabel">(B1)</span></li>
+          <li id="keyC2" class="symbol">9 <span class="keyboardLabel">(C2)</span><span class="blackSign"></span></li>
+          <li id="keyD2" class="symbol">0 <span class="keyboardLabel">(D2)</span><span class="blackSign"></span></li>
+          <li id="keyE2" class="symbol">- <span class="keyboardLabel">(E2)</span></li>
+          <li id="keyF2" class="symbol">= <span class="keyboardLabel">(F2)</span><span class="blackSign"></span></li>
+          <li class="delete diableKeys">backsp</li>
+          <li class="symbol NumLK diableKeys">numLK</li>
+          <li class="symbol diableKeys">/</li>
+          <li class="symbol diableKeys">*</li>
+          <li class="tab diableKeys">tab</li>
+          <li id="keyG2" class="letter">q <span class="keyboardLabel">(G2)</span><span class="blackSign"></span></li>
+          <li id="keyA2" class="letter">w <span class="keyboardLabel">(A2)</span><span class="blackSign"></span></li>
+          <li id="keyB2" class="letter">e <span class="keyboardLabel">(B2)</span></li>
+          <li id="keyC3" class="letter">r <span class="keyboardLabel">(C3)</span><span class="blackSign"></span></li>
+          <li id="keyD3" class="letter">t <span class="keyboardLabel">(D3)</span><span class="blackSign"></span></li>
+          <li id="keyE3" class="letter">y <span class="keyboardLabel">(E3)</span></li>
+          <li id="keyF3" class="letter">u <span class="keyboardLabel">(F3)</span><span class="blackSign"></span></li>
+          <li id="keyG3" class="letter">i <span class="keyboardLabel">(G3)</span><span class="blackSign"></span></li>
+          <li id="keyA3" class="letter">o <span class="keyboardLabel">(A3)</span><span class="blackSign"></span></li>
+          <li id="keyB3" class="letter">p <span class="keyboardLabel">(B3)</span></li>
+          <li id="keyC4" class="symbol">[ <span class="keyboardLabel">(C4)</span><span class="blackSign"></span></li>
+          <li id="keyD4" class="symbol">] <span class="keyboardLabel">(D4)</span><span class="blackSign"></span></li>
+          <li id="keyE4" class="symbol">\ <span class="keyboardLabel">(E4)</span></li>
+          <li id="keyF4" class="symbol">7 <span class="keyboardLabel">(F4)</span><span class="blackSign"></span></li>
+          <li id="keyG4" class="symbol">8 <span class="keyboardLabel">(G4)</span><span class="blackSign"></span></li>
+          <li id="keyA4" class="symbol">9 <span class="keyboardLabel">(A4)</span><span class="blackSign"></span></li>
+          <li class="capslock diableKeys">caps lock</li>
+          <li id="keyB4" class="letter">a <span class="keyboardLabel">(B4)</span></li>
+          <li id="keyC5" class="letter">s <span class="keyboardLabel">(C5)</span><span class="blackSign"></span></li>
+          <li id="keyD5" class="letter">d <span class="keyboardLabel">(D5)</span><span class="blackSign"></span></li>
+          <li id="keyE5" class="letter">f <span class="keyboardLabel">(E5)</span></li>
+          <li id="keyF5" class="letter">g <span class="keyboardLabel">(F5)</span><span class="blackSign"></span></li>
+          <li id="keyG5" class="letter">h <span class="keyboardLabel">(G5)</span><span class="blackSign"></span></li>
+          <li id="keyA5" class="letter">j <span class="keyboardLabel">(A5)</span><span class="blackSign"></span></li>
+          <li id="keyB5" class="letter">k <span class="keyboardLabel">(B5)</span></li>
+          <li id="keyC6" class="letter">l <span class="keyboardLabel">(C6)</span><span class="blackSign"></span></li>
+          <li id="keyD6" class="symbol">; <span class="keyboardLabel">(D6)</span><span class="blackSign"></span></li>
+          <li id="keyE6" class="symbol">' <span class="keyboardLabel">(E6)</span></li>
+          <li class="return lastitem diableKeys">enter</li>
+          <li id="keyF6" class="symbol">4 <span class="keyboardLabel">(F6)</span><span class="blackSign"></span></li>
+          <li id="keyG6" class="symbol">5 <span class="keyboardLabel">(G6)</span><span class="blackSign"></span></li>
+          <li id="keyA6" class="symbol">6 <span class="keyboardLabel">(A6)</span><span class="blackSign"></span></li>
+          <li class="left-shift diableKeys">shift</li>
+          <li id="keyB6" class="letter">z <span class="keyboardLabel">(B6)</span></li>
+          <li id="keyC7" class="letter">x <span class="keyboardLabel">(C7)</span><span class="blackSign"></span></li>
+          <li id="keyD7" class="letter">c <span class="keyboardLabel">(D7)</span><span class="blackSign"></span></li>
+          <li id="keyE7" class="letter">v <span class="keyboardLabel">(E7)</span></li>
+          <li id="keyF7" class="letter">b <span class="keyboardLabel">(F7)</span><span class="blackSign"></span></li>
+          <li id="keyG7" class="letter">n <span class="keyboardLabel">(G7)</span><span class="blackSign"></span></li>
+          <li id="keyA7" class="letter">m <span class="keyboardLabel">(A7)</span><span class="blackSign"></span></li>
+          <li id="keyB7" class="symbol">, <span class="keyboardLabel">(B7)</span></li>
+          <li id="keyC8" class="symbol">. <span class="keyboardLabel">(C8)</span></li>
+          <li class="symbol diableKeys">/</li>
+          <li class="right-shift lastitem diableKeys">shift</li>
+          <li class="symbol diableKeys">1</li>
+          <li class="symbol diableKeys">2</li>
+          <li class="symbol diableKeys">3</li>
+        </ul>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div id="wrapper">
+      <div class="toolbar">
+        <div id="reload" title="Reload UI">
+          <svg height="12" width="12" viewBox="0 0 512 512">
+            <path d="M281.525,228.102l104.758-78.042 c12.082-12.085,12.082-24.259,0-36.342L281.525,35.674c-3.274-2.359-7.359-3.725-11.723-3.725c-10.992,0-19.803,8.536-19.803,19.083  v35.429C144.611,86.737,59.205,172.046,59.205,277.258c0,105.396,85.672,190.793,191.248,190.793 c98.03,0,178.809-73.498,189.977-168.169c0.092-0.275,0.367-3.187,0.367-4.455c0-9.992-8.181-18.169-18.261-18.169h-45.793 c-14.993,0-26.349,10.355-27.893,18.986c-8.811,46.156-49.519,80.954-98.397,80.954c-55.329,0-100.127-44.701-100.127-99.94 c0-55.064,44.523-99.667,99.674-99.941v35.437c0,10.541,8.811,19.076,19.803,19.076C274.166,231.83,278.251,230.471,281.525,228.102 z"/>
+          </svg>
+        </div>
+        <div id="support" title="Open support page">
+          <svg height="12" width="12" viewBox="0 0 1792 1792">
+            <path d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z"/>
+          </svg>
+        </div>
+        <div id="donation" title="Make a donation">
+          <svg height="12" width="12" viewBox="-0.709 -11.555 141.732 141.732">
+            <path d="M140.314,37.654C140.314,16.858,123.402,0,102.537,0c-13.744,0-25.77,7.317-32.379,18.255C63.549,7.317,51.521,0,37.777,0 C16.912,0,0,16.858,0,37.654c0,10.821,4.588,20.57,11.922,27.438h-0.01l54.084,51.584c0.992,1.188,2.48,1.945,4.148,1.945 c1.545,0,2.936-0.653,3.92-1.696l54.346-51.833h-0.016C135.729,58.225,140.314,48.476,140.314,37.654"/>
+          </svg>
+        </div>
+      </div>
+      <div id="transparent"></div>
+      <div id="workingContent">
+        <div id="topSection">
+          <section class="buttonWrapper">
+            <span class="navigationButton" id="menuIcon" title="Settings">
+              <svg width="16" height="16" viewBox="0 0 24 24">
+                <path d="M1.1,24h21.8c0.6,0,1.1-0.5,1.1-1.1V1.1C24,0.5,23.5,0,22.9,0H1.1C0.5,0,0,0.5,0,1.1v21.8C0,23.5,0.5,24,1.1,24z M22,2v20 h-6V2H22z M2,2h13v20H2V2z"/>
+              </svg>
+            </span>
+          </section>
+          <section class="buttonWrapper">
+            <a class="navigationButton" id="rightManyLoop" title="Fast-move keyboard to the right">
+              <svg width="16" height="16" viewBox="0 0 18 12">
+                <g transform="translate(-43.000000, -5.000000)">
+                  <g transform="translate(43.000000, 5.000000)">
+                    <path d="M0,12 L8.5,6 L0,0 L0,12 L0,12 Z M9,0 L9,12 L17.5,6 L9,0 L9,0 Z"/>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </section>
+          <section class="buttonWrapper">
+            <a class="navigationButton" id="rightLoop" title="Move keyboard to the right">
+              <svg width="16" height="16" viewBox="0 0 512 512">
+                <path d="M405.2,232.9L126.8,67.2c-3.4-2-6.9-3.2-10.9-3.2c-10.9,0-19.8,9-19.8,20H96v344h0.1c0,11,8.9,20,19.8,20 c4.1,0,7.5-1.4,11.2-3.4l278.1-165.5c6.6-5.5,10.8-13.8,10.8-23.1C416,246.7,411.8,238.5,405.2,232.9z"/>
+              </svg>
+            </a>
+          </section>
+          <div id="smallPiano"><span id="handle"></span></div>
+          <section class="buttonWrapper">
+            <a class="navigationButton" id="leftLoop" title="Move keyboard to the left">
+              <svg width="16" height="16" viewBox="0 0 512 512">
+                <path d="M 106.8,232.9 385.2,67.2 C 388.6,65.2 392.1,64 396.1,64 407,64 415.9,73 415.9,84 H 416 V 428 H 415.9 C 415.9,439 407,448 396.1,448 392,448 388.6,446.6 384.9,444.6 L 106.8,279.1 C 100.2,273.6 96,265.3 96,256 96,246.7 100.2,238.5 106.8,232.9 Z"/>
+              </svg>
+            </a>
+          </section>
+          <section class="buttonWrapper">
+            <a class="navigationButton" id="leftManyLoop" title="Fast-move keyboard to the left">
+              <svg width="16" height="16" viewBox="0 0 18 12">
+                <g transform="matrix(-1,0,0,1,18,0)">
+                  <g transform="translate(-43.000000, -5.000000)">
+                    <g transform="translate(43.000000, 5.000000)">
+                      <path d="M0,12 L8.5,6 L0,0 L0,12 L0,12 Z M9,0 L9,12 L17.5,6 L9,0 L9,0 Z"/>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </section>
+          <section class="buttonWrapper">
+            <span class="navigationButton" id="record" title="Record">
+              <svg width="28" height="28" viewBox="0 0 24 24">
+                <g>
+                  <path d="M12,8c2.205,0,4,1.794,4,4s-1.795,4-4,4s-4-1.794-4-4S9.795,8,12,8 M12,6c-3.314,0-6,2.686-6,6c0,3.312,2.686,6,6,6 c3.312,0,6-2.688,6-6C18,8.686,15.312,6,12,6z"/>
+                </g>
+              </svg>
+            </span>
+          </section>
+        </div>
+        <div id="mainSection">
+          <ul id="piano">
+            <li class="anchor" id="noteA0" data-note="A0"><label class="keyName color1">A0</label></li>
+            <li class="anchor" id="noteB0" data-note="B0"><div class="blackKey" data-note="Black1" id="blacknote1"><span></span></div><label class="keyName color1">B0</label></li>
+            <li class="anchor" id="noteC1" data-note="C1"><label class="keyName color2">C1</label></li>
+            <li class="anchor" id="noteD1" data-note="D1"><div class="blackKey" data-note="Black2" id="blacknote2"><span></span></div><label class="keyName color2">D1</label></li>
+            <li class="anchor" id="noteE1" data-note="E1"><div class="blackKey" data-note="Black3" id="blacknote3"><span></span></div><label class="keyName color2">E1</label></li>
+            <li class="anchor" id="noteF1" data-note="F1"><label class="keyName color2">F1</label></li>
+            <li class="anchor" id="noteG1" data-note="G1"><div class="blackKey" data-note="Black4" id="blacknote4"><span></span></div><label class="keyName color2">G1</label></li>
+            <li class="anchor" id="noteA1" data-note="A1"><div class="blackKey" data-note="Black5" id="blacknote5"><span></span></div><label class="keyName color2">A1</label></li>
+            <li class="anchor" id="noteB1" data-note="B1"><div class="blackKey" data-note="Black6" id="blacknote6"><span></span></div><label class="keyName color2">B1</label></li>
+            <li class="anchor" id="noteC2" data-note="C2"><label class="keyName color3">C2</label></li>
+            <li class="anchor" id="noteD2" data-note="D2"><div class="blackKey" data-note="Black7" id="blacknote7"><span></span></div><label class="keyName color3">D2</label></li>
+            <li class="anchor" id="noteE2" data-note="E2"><div class="blackKey" data-note="Black8" id="blacknote8"><span></span></div><label class="keyName color3">E2</label></li>
+            <li class="anchor" id="noteF2" data-note="F2"><label class="keyName color3">F2</label></li>
+            <li class="anchor" id="noteG2" data-note="G2"><div class="blackKey" data-note="Black9" id="blacknote9"><span></span></div><label class="keyName color3">G2</label></li>
+            <li class="anchor" id="noteA2" data-note="A2"><div class="blackKey" data-note="Black10" id="blacknote10"><span></span></div><label class="keyName color3">A2</label></li>
+            <li class="anchor" id="noteB2" data-note="B2"><div class="blackKey" data-note="Black11" id="blacknote11"><span></span></div><label class="keyName color3">B2</label></li>
+            <li class="anchor" id="noteC3" data-note="C3"><label class="keyName color4">C3</label></li>
+            <li class="anchor" id="noteD3" data-note="D3"><div class="blackKey" data-note="Black12" id="blacknote12"><span></span></div><label class="keyName color4">D3</label></li>
+            <li class="anchor" id="noteE3" data-note="E3"><div class="blackKey" data-note="Black13" id="blacknote13"><span></span></div><label class="keyName color4">E3</label></li>
+            <li class="anchor" id="noteF3" data-note="F3"><label class="keyName color4">F3</label></li>
+            <li class="anchor" id="noteG3" data-note="G3"><div class="blackKey" data-note="Black14" id="blacknote14"><span></span></div><label class="keyName color4">G3</label></li>
+            <li class="anchor" id="noteA3" data-note="A3"><div class="blackKey" data-note="Black15" id="blacknote15"><span></span></div><label class="keyName color4">A3</label></li>
+            <li class="anchor" id="noteB3" data-note="B3"><div class="blackKey" data-note="Black16" id="blacknote16"><span></span></div><label class="keyName color4">B3</label></li>
+            <li class="anchor" id="noteC4" data-note="C4"><label class="keyName color5">C4</label></li>
+            <li class="anchor" id="noteD4" data-note="D4"><div class="blackKey" data-note="Black17" id="blacknote17"><span></span></div><label class="keyName color5">D4</label></li>
+            <li class="anchor" id="noteE4" data-note="E4"><div class="blackKey" data-note="Black18" id="blacknote18"><span></span></div><label class="keyName color5">E4</label></li>
+            <li class="anchor" id="noteF4" data-note="F4"><label class="keyName color5">F4</label></li>
+            <li class="anchor" id="noteG4" data-note="G4"><div class="blackKey" data-note="Black19" id="blacknote19"><span></span></div><label class="keyName color5">G4</label></li>
+            <li class="anchor" id="noteA4" data-note="A4"><div class="blackKey" data-note="Black20" id="blacknote20"><span></span></div><label class="keyName color5">A4</label></li>
+            <li class="anchor" id="noteB4" data-note="B4"><div class="blackKey" data-note="Black21" id="blacknote21"><span></span></div><label class="keyName color5">B4</label></li>
+            <li class="anchor" id="noteC5" data-note="C5"><label class="keyName color6">C5</label></li>
+            <li class="anchor" id="noteD5" data-note="D5"><div class="blackKey" data-note="Black22" id="blacknote22"><span></span></div><label class="keyName color6">D5</label></li>
+            <li class="anchor" id="noteE5" data-note="E5"><div class="blackKey" data-note="Black23" id="blacknote23"><span></span></div><label class="keyName color6">E5</label></li>
+            <li class="anchor" id="noteF5" data-note="F5"><label class="keyName color6">F5</label></li>
+            <li class="anchor" id="noteG5" data-note="G5"><div class="blackKey" data-note="Black24" id="blacknote24"><span></span></div><label class="keyName color6">G5</label></li>
+            <li class="anchor" id="noteA5" data-note="A5"><div class="blackKey" data-note="Black25" id="blacknote25"><span></span></div><label class="keyName color6">A5</label></li>
+            <li class="anchor" id="noteB5" data-note="B5"><div class="blackKey" data-note="Black26" id="blacknote26"><span></span></div><label class="keyName color6">B5</label></li>
+            <li class="anchor" id="noteC6" data-note="C6"><label class="keyName color7">C6</label></li>
+            <li class="anchor" id="noteD6" data-note="D6"><div class="blackKey" data-note="Black27" id="blacknote27"><span></span></div><label class="keyName color7">D6</label></li>
+            <li class="anchor" id="noteE6" data-note="E6"><div class="blackKey" data-note="Black28" id="blacknote28"><span></span></div><label class="keyName color7">E6</label></li>
+            <li class="anchor" id="noteF6" data-note="F6"><label class="keyName color7">F6</label></li>
+            <li class="anchor" id="noteG6" data-note="G6"><div class="blackKey" data-note="Black29" id="blacknote29"><span></span></div><label class="keyName color7">G6</label></li>
+            <li class="anchor" id="noteA6" data-note="A6"><div class="blackKey" data-note="Black30" id="blacknote30"><span></span></div><label class="keyName color7">A6</label></li>
+            <li class="anchor" id="noteB6" data-note="B6"><div class="blackKey" data-note="Black31" id="blacknote31"><span></span></div><label class="keyName color7">B6</label></li>
+            <li class="anchor" id="noteC7" data-note="C7"><label class="keyName color8">C7</label></li>
+            <li class="anchor" id="noteD7" data-note="D7"><div class="blackKey" data-note="Black32" id="blacknote32"><span></span></div><label class="keyName color8">D7</label></li>
+            <li class="anchor" id="noteE7" data-note="E7"><div class="blackKey" data-note="Black33" id="blacknote33"><span></span></div><label class="keyName color8">E7</label></li>
+            <li class="anchor" id="noteF7" data-note="F7"><label class="keyName color8">F7</label></li>
+            <li class="anchor" id="noteG7" data-note="G7"><div class="blackKey" data-note="Black34" id="blacknote34"><span></span></div><label class="keyName color8">G7</label></li>
+            <li class="anchor" id="noteA7" data-note="A7"><div class="blackKey" data-note="Black35" id="blacknote35"><span></span></div><label class="keyName color8">A7</label></li>
+            <li class="anchor" id="noteB7" data-note="B7"><div class="blackKey" data-note="Black36" id="blacknote36"><span></span></div><label class="keyName color8">B7</label></li>
+            <li class="anchor" id="noteC8" data-note="C8"><label class="keyName" id="C8">C8</label></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="sidebar">
+      <h1>Keyboard settings
+        <span>
+          <svg height="16" viewBox="0 0 20 20" width="16">
+            <g transform="translate(-464.000000, -380.000000)">
+              <g transform="translate(464.000000, 380.000000)">
+                <path d="M17.4,11 C17.4,10.7 17.5,10.4 17.5,10 C17.5,9.6 17.5,9.3 17.4,9 L19.5,7.3 C19.7,7.1 19.7,6.9 19.6,6.7 L17.6,3.2 C17.5,3.1 17.3,3 17,3.1 L14.5,4.1 C14,3.7 13.4,3.4 12.8,3.1 L12.4,0.5 C12.5,0.2 12.2,0 12,0 L8,0 C7.8,0 7.5,0.2 7.5,0.4 L7.1,3.1 C6.5,3.3 6,3.7 5.4,4.1 L3,3.1 C2.7,3 2.5,3.1 2.3,3.3 L0.3,6.8 C0.2,6.9 0.3,7.2 0.5,7.4 L2.6,9 C2.6,9.3 2.5,9.6 2.5,10 C2.5,10.4 2.5,10.7 2.6,11 L0.5,12.7 C0.3,12.9 0.3,13.1 0.4,13.3 L2.4,16.8 C2.5,16.9 2.7,17 3,16.9 L5.5,15.9 C6,16.3 6.6,16.6 7.2,16.9 L7.6,19.5 C7.6,19.7 7.8,19.9 8.1,19.9 L12.1,19.9 C12.3,19.9 12.6,19.7 12.6,19.5 L13,16.9 C13.6,16.6 14.2,16.3 14.7,15.9 L17.2,16.9 C17.4,17 17.7,16.9 17.8,16.7 L19.8,13.2 C19.9,13 19.9,12.7 19.7,12.6 L17.4,11 L17.4,11 Z M10,13.5 C8.1,13.5 6.5,11.9 6.5,10 C6.5,8.1 8.1,6.5 10,6.5 C11.9,6.5 13.5,8.1 13.5,10 C13.5,11.9 11.9,13.5 10,13.5 L10,13.5 Z"/>
+              </g>
+            </g>
+          </svg>
+        </span>
+      </h1>
+      <table class="settings">
+        <tr>
+          <td>Visible keys: <label id="lblNumberOfKeys">20</label></td>
+          <td>
+            <ul id="range">
+              <li id="plusSign">+</li>
+              <li id="minusSign">-</li>
+            </ul>
+          </td>
+        </tr>
+        <tr id="showKeyboardRow">
+          <td>Show keyboard</td>
+          <td><div class="toggle"><span id="showKeyboard"></span></div></td>
+        </tr>
+        <tr>
+          <td>Sustain control</td>
+          <td><div class="toggle"><span id="sustainKeyboard"></span></div></td>
+        </tr>
+        <tr>
+          <td colspan="2"><a id="lnkResetSettings">Reset to default settings</a></td>
+        </tr>
+        <tr><td><a id="lnkClose">Close</a></td></tr>
+      </table>
+      <h2>Recorded files</h2>
+      <div id="recordedFileWrapper"><table id="tblRecordedFiles"></table></div>
+    </div>
+    <div id="inputBoxWrapper">
+      <div id="inputBox">
+        <h1>Save Dialog</h1>
+        <table>
+          <tr>
+            <td>File Name:</td>
+            <td><input type="text" id="txtSaveRecordFile" maxlength="20"/></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:right;">
+              <a class="saveControls" id="btnSaveRecordFile">Save</a>
+              <a class="saveControls" id="btnCancelRecordFile">Cancel</a>
+            </td>
+          </tr>
+        </table>
+        <br/>
+      </div>
+    </div>
+    <div id="deleteBoxWrapper">
+      <div id="deleteBox">
+        <h1>Delete Dialog</h1>
+        <table>
+          <tr><td>Are you sure to delete this item?</td></tr>
+          <tr>
+            <td style="text-align:right;">
+              <a class="saveControls" id="btnYes">Yes</a>
+              <a class="saveControls" id="btnNo">No</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="transparentShadow"></div>
+    <!-- -->
+    <script type="text/javascript" src="resources/script/elements.js"></script>
+    <script type="text/javascript" src="resources/script/keyboard.js"></script>
+    <script type="text/javascript" src="resources/script/audiomanager.js"></script>
+    <script type="text/javascript" src="resources/script/audiosequencer.js"></script>
+    <!-- -->
+    <script type="text/javascript" src="resources/script/config.js"></script>
+    <script type="text/javascript" src="resources/script/listeners.js"></script>
+    <script type="text/javascript" src="resources/script/piano.js"></script>
+    <!-- -->
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
