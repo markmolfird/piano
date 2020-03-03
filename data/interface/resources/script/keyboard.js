@@ -315,7 +315,7 @@ document.addEventListener("keydown", function (e) {
       case 192:
         keyA0.className = "keyboardActive"
         blacknote1.firstChild.className = "blackKeyActive"
-        if (blacknote1Flag == false) {
+        if (blacknote1Flag === false) {
           playkeynote(blacknote1, 53);
           blacknote1Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -326,7 +326,7 @@ document.addEventListener("keydown", function (e) {
       case 50:
         keyC1.className = "keyboardActive"
         blacknote2.firstChild.className = "blackKeyActive"
-        if (blacknote2Flag == false) {
+        if (blacknote2Flag === false) {
           playkeynote(blacknote2, 54);
           blacknote2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -337,7 +337,7 @@ document.addEventListener("keydown", function (e) {
       case 51:
         keyD1.className = "keyboardActive"
         blacknote3.firstChild.className = "blackKeyActive"
-        if (blacknote3Flag == false) {
+        if (blacknote3Flag === false) {
           playkeynote(blacknote3, 55);
           blacknote3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -348,7 +348,7 @@ document.addEventListener("keydown", function (e) {
       case 53:
         keyF1.className = "keyboardActive"
         blacknote4.firstChild.className = "blackKeyActive"
-        if (blacknote4Flag == false) {
+        if (blacknote4Flag === false) {
           playkeynote(blacknote4, 56);
           blacknote4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -359,7 +359,7 @@ document.addEventListener("keydown", function (e) {
       case 54:
         keyG1.className = "keyboardActive"
         blacknote5.firstChild.className = "blackKeyActive"
-        if (blacknote5Flag == false) {
+        if (blacknote5Flag === false) {
           playkeynote(blacknote5, 57);
           blacknote5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -370,7 +370,7 @@ document.addEventListener("keydown", function (e) {
       case 55:
         keyA1.className = "keyboardActive"
         blacknote6.firstChild.className = "blackKeyActive"
-        if (blacknote6Flag == false) {
+        if (blacknote6Flag === false) {
           playkeynote(blacknote6, 58);
           blacknote6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -381,7 +381,7 @@ document.addEventListener("keydown", function (e) {
       case 57:
         keyC2.className = "keyboardActive"
         blacknote7.firstChild.className = "blackKeyActive"
-        if (blacknote7Flag == false) {
+        if (blacknote7Flag === false) {
           playkeynote(blacknote7, 59);
           blacknote7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -392,7 +392,7 @@ document.addEventListener("keydown", function (e) {
       case 48:
         keyD2.className = "keyboardActive"
         blacknote8.firstChild.className = "blackKeyActive"
-        if (blacknote8Flag == false) {
+        if (blacknote8Flag === false) {
           playkeynote(blacknote8, 60);
           blacknote8Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -403,7 +403,7 @@ document.addEventListener("keydown", function (e) {
       case 187: case 61:
         keyF2.className = "keyboardActive"
         blacknote9.firstChild.className = "blackKeyActive"
-        if (blacknote9Flag == false) {
+        if (blacknote9Flag === false) {
           playkeynote(blacknote9, 61);
           blacknote9Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -414,7 +414,7 @@ document.addEventListener("keydown", function (e) {
       case 81:
         keyG2.className = "keyboardActive"
         blacknote10.firstChild.className = "blackKeyActive"
-        if (blacknote10Flag == false) {
+        if (blacknote10Flag === false) {
           playkeynote(blacknote10, 62);
           blacknote10Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -425,7 +425,7 @@ document.addEventListener("keydown", function (e) {
       case 87:
         keyA2.className = "keyboardActive"
         blacknote11.firstChild.className = "blackKeyActive"
-        if (blacknote11Flag == false) {
+        if (blacknote11Flag === false) {
           playkeynote(blacknote11, 63);
           blacknote11Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -436,7 +436,7 @@ document.addEventListener("keydown", function (e) {
       case 82:
         keyC3.className = "keyboardActive"
         blacknote12.firstChild.className = "blackKeyActive"
-        if (blacknote12Flag == false) {
+        if (blacknote12Flag === false) {
           playkeynote(blacknote12, 64);
           blacknote12Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -447,7 +447,7 @@ document.addEventListener("keydown", function (e) {
       case 84:
         keyD3.className = "keyboardActive"
         blacknote13.firstChild.className = "blackKeyActive"
-        if (blacknote13Flag == false) {
+        if (blacknote13Flag === false) {
           playkeynote(blacknote13, 65);
           blacknote13Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -458,7 +458,7 @@ document.addEventListener("keydown", function (e) {
       case 85:
         keyF3.className = "keyboardActive"
         blacknote14.firstChild.className = "blackKeyActive"
-        if (blacknote14Flag == false) {
+        if (blacknote14Flag === false) {
           playkeynote(blacknote14, 66);
           blacknote14Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -469,7 +469,7 @@ document.addEventListener("keydown", function (e) {
       case 73:
         keyG3.className = "keyboardActive"
         blacknote15.firstChild.className = "blackKeyActive"
-        if (blacknote15Flag == false) {
+        if (blacknote15Flag === false) {
           playkeynote(blacknote15, 67);
           blacknote15Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -480,7 +480,7 @@ document.addEventListener("keydown", function (e) {
       case 79:
         keyA3.className = "keyboardActive"
         blacknote16.firstChild.className = "blackKeyActive"
-        if (blacknote16Flag == false) {
+        if (blacknote16Flag === false) {
           playkeynote(blacknote16, 68);
           blacknote16Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -491,7 +491,7 @@ document.addEventListener("keydown", function (e) {
       case 219:
         keyC4.className = "keyboardActive"
         blacknote17.firstChild.className = "blackKeyActive"
-        if (blacknote17Flag == false) {
+        if (blacknote17Flag === false) {
           playkeynote(blacknote17, 69);
           blacknote17Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -502,7 +502,7 @@ document.addEventListener("keydown", function (e) {
       case 221:
         keyD4.className = "keyboardActive"
         blacknote18.firstChild.className = "blackKeyActive"
-        if (blacknote18Flag == false) {
+        if (blacknote18Flag === false) {
           playkeynote(blacknote18, 70);
           blacknote18Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -513,7 +513,7 @@ document.addEventListener("keydown", function (e) {
       case 103:
         keyF4.className = "keyboardActive"
         blacknote19.firstChild.className = "blackKeyActive"
-        if (blacknote19Flag == false) {
+        if (blacknote19Flag === false) {
           playkeynote(blacknote19, 71);
           blacknote19Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -524,7 +524,7 @@ document.addEventListener("keydown", function (e) {
       case 104:
         keyG4.className = "keyboardActive"
         blacknote20.firstChild.className = "blackKeyActive"
-        if (blacknote20Flag == false) {
+        if (blacknote20Flag === false) {
           playkeynote(blacknote20, 72);
           blacknote20Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -535,7 +535,7 @@ document.addEventListener("keydown", function (e) {
       case 105:
         keyA4.className = "keyboardActive"
         blacknote21.firstChild.className = "blackKeyActive"
-        if (blacknote21Flag == false) {
+        if (blacknote21Flag === false) {
           playkeynote(blacknote21, 73);
           blacknote21Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -546,7 +546,7 @@ document.addEventListener("keydown", function (e) {
       case 83:
         keyC5.className = "keyboardActive"
         blacknote22.firstChild.className = "blackKeyActive"
-        if (blacknote22Flag == false) {
+        if (blacknote22Flag === false) {
           playkeynote(blacknote22, 74);
           blacknote22Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -557,7 +557,7 @@ document.addEventListener("keydown", function (e) {
       case 68:
         keyD5.className = "keyboardActive"
         blacknote23.firstChild.className = "blackKeyActive"
-        if (blacknote23Flag == false) {
+        if (blacknote23Flag === false) {
           playkeynote(blacknote23, 75);
           blacknote23Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -568,7 +568,7 @@ document.addEventListener("keydown", function (e) {
       case 71:
         keyF5.className = "keyboardActive"
         blacknote24.firstChild.className = "blackKeyActive"
-        if (blacknote24Flag == false) {
+        if (blacknote24Flag === false) {
           playkeynote(blacknote24, 76);
           blacknote24Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -579,7 +579,7 @@ document.addEventListener("keydown", function (e) {
       case 72:
         keyG5.className = "keyboardActive"
         blacknote25.firstChild.className = "blackKeyActive"
-        if (blacknote25Flag == false) {
+        if (blacknote25Flag === false) {
           playkeynote(blacknote25, 77);
           blacknote25Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -590,7 +590,7 @@ document.addEventListener("keydown", function (e) {
       case 74:
         keyA5.className = "keyboardActive"
         blacknote26.firstChild.className = "blackKeyActive"
-        if (blacknote26Flag == false) {
+        if (blacknote26Flag === false) {
           playkeynote(blacknote26, 78);
           blacknote26Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -601,7 +601,7 @@ document.addEventListener("keydown", function (e) {
       case 76:
         keyC6.className = "keyboardActive"
         blacknote27.firstChild.className = "blackKeyActive"
-        if (blacknote27Flag == false) {
+        if (blacknote27Flag === false) {
           playkeynote(blacknote27, 79);
           blacknote27Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -612,7 +612,7 @@ document.addEventListener("keydown", function (e) {
       case 186: case 59:
         keyD6.className = "keyboardActive"
         blacknote28.firstChild.className = "blackKeyActive"
-        if (blacknote28Flag == false) {
+        if (blacknote28Flag === false) {
           playkeynote(blacknote28, 80);
           blacknote28Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -623,7 +623,7 @@ document.addEventListener("keydown", function (e) {
       case 100:
         keyF6.className = "keyboardActive"
         blacknote29.firstChild.className = "blackKeyActive"
-        if (blacknote29Flag == false) {
+        if (blacknote29Flag === false) {
           playkeynote(blacknote29, 81);
           blacknote29Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -634,7 +634,7 @@ document.addEventListener("keydown", function (e) {
       case 101:
         keyG6.className = "keyboardActive"
         blacknote30.firstChild.className = "blackKeyActive"
-        if (blacknote30Flag == false) {
+        if (blacknote30Flag === false) {
           playkeynote(blacknote30, 82);
           blacknote30Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -645,7 +645,7 @@ document.addEventListener("keydown", function (e) {
       case 102:
         keyA6.className = "keyboardActive"
         blacknote31.firstChild.className = "blackKeyActive"
-        if (blacknote31Flag == false) {
+        if (blacknote31Flag === false) {
           playkeynote(blacknote31, 83);
           blacknote31Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -656,7 +656,7 @@ document.addEventListener("keydown", function (e) {
       case 88:
         keyC7.className = "keyboardActive"
         blacknote32.firstChild.className = "blackKeyActive"
-        if (blacknote32Flag == false) {
+        if (blacknote32Flag === false) {
           playkeynote(blacknote32, 84);
           blacknote32Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -667,7 +667,7 @@ document.addEventListener("keydown", function (e) {
       case 67:
         keyD7.className = "keyboardActive"
         blacknote33.firstChild.className = "blackKeyActive"
-        if (blacknote33Flag == false) {
+        if (blacknote33Flag === false) {
           playkeynote(blacknote33, 85);
           blacknote33Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -678,7 +678,7 @@ document.addEventListener("keydown", function (e) {
       case 66:
         keyF7.className = "keyboardActive"
         blacknote34.firstChild.className = "blackKeyActive"
-        if (blacknote34Flag == false) {
+        if (blacknote34Flag === false) {
           playkeynote(blacknote34, 86);
           blacknote34Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -689,7 +689,7 @@ document.addEventListener("keydown", function (e) {
       case 78:
         keyG7.className = "keyboardActive"
         blacknote35.firstChild.className = "blackKeyActive"
-        if (blacknote35Flag == false) {
+        if (blacknote35Flag === false) {
           playkeynote(blacknote35, 87);
           blacknote35Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -700,7 +700,7 @@ document.addEventListener("keydown", function (e) {
       case 77:
         keyA7.className = "keyboardActive"
         blacknote36.firstChild.className = "blackKeyActive"
-        if (blacknote36Flag == false) {
+        if (blacknote36Flag === false) {
           playkeynote(blacknote36, 88);
           blacknote36Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -716,7 +716,7 @@ document.addEventListener("keydown", function (e) {
       case 192:
         keyA0.className = "keyboardActive"
         noteA0.className = "anchor active"
-        if (noteA0Flag == false) {
+        if (noteA0Flag === false) {
           playkeynote(noteA0, 1);
           noteA0Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -727,7 +727,7 @@ document.addEventListener("keydown", function (e) {
       case 49:
         keyB0.className = "keyboardActive"
         noteB0.className = "anchor active"
-        if (noteB0Flag == false) {
+        if (noteB0Flag === false) {
           playkeynote(noteB0, 2);
           noteB0Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -738,7 +738,7 @@ document.addEventListener("keydown", function (e) {
       case 50:
         keyC1.className = "keyboardActive"
         noteC1.className = "anchor active"
-        if (noteC1Flag == false) {
+        if (noteC1Flag === false) {
           if (config.app.engine.audio.sequencer.recording) {
             config.app.engine.audio.sequencer.addNoteOn("C1");
           }
@@ -749,7 +749,7 @@ document.addEventListener("keydown", function (e) {
       case 51:
         keyD1.className = "keyboardActive"
         noteD1.className = "anchor active"
-        if (noteD1Flag == false) {
+        if (noteD1Flag === false) {
           playkeynote(noteD1, 4);
           noteD1Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -760,7 +760,7 @@ document.addEventListener("keydown", function (e) {
       case 52:
         keyE1.className = "keyboardActive"
         noteE1.className = "anchor active"
-        if (noteE1Flag == false) {
+        if (noteE1Flag === false) {
           playkeynote(noteE1, 5);
           noteE1Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -771,7 +771,7 @@ document.addEventListener("keydown", function (e) {
       case 53:
         keyF1.className = "keyboardActive"
         noteF1.className = "anchor active"
-        if (noteF1Flag == false) {
+        if (noteF1Flag === false) {
           playkeynote(noteF1, 6);
           noteF1Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -782,7 +782,7 @@ document.addEventListener("keydown", function (e) {
       case 54:
         keyG1.className = "keyboardActive"
         noteG1.className = "anchor active"
-        if (noteG1Flag == false) {
+        if (noteG1Flag === false) {
           playkeynote(noteG1, 7);
           noteG1Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -793,7 +793,7 @@ document.addEventListener("keydown", function (e) {
       case 55:
         keyA1.className = "keyboardActive"
         noteA1.className = "anchor active"
-        if (noteA1Flag == false) {
+        if (noteA1Flag === false) {
           playkeynote(noteA1, 8);
           noteA1Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -804,7 +804,7 @@ document.addEventListener("keydown", function (e) {
       case 56:
         keyB1.className = "keyboardActive"
         noteB1.className = "anchor active"
-        if (noteB1Flag == false) {
+        if (noteB1Flag === false) {
           playkeynote(noteB1, 9);
           noteB1Flag = true;
 
@@ -816,7 +816,7 @@ document.addEventListener("keydown", function (e) {
       case 57:
         keyC2.className = "keyboardActive"
         noteC2.className = "anchor active"
-        if (noteC2Flag == false) {
+        if (noteC2Flag === false) {
           playkeynote(noteC2, 10);
           noteC2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -827,7 +827,7 @@ document.addEventListener("keydown", function (e) {
       case 48:
         keyD2.className = "keyboardActive"
         noteD2.className = "anchor active"
-        if (noteD2Flag == false) {
+        if (noteD2Flag === false) {
           playkeynote(noteD2, 11);
           noteD2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -838,7 +838,7 @@ document.addEventListener("keydown", function (e) {
       case 189: case 173:
         keyE2.className = "keyboardActive"
         noteE2.className = "anchor active"
-        if (noteE2Flag == false) {
+        if (noteE2Flag === false) {
           playkeynote(noteE2, 12);
           noteE2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -849,7 +849,7 @@ document.addEventListener("keydown", function (e) {
       case 187: case 61:
         keyF2.className = "keyboardActive"
         noteF2.className = "anchor active"
-        if (noteF2Flag == false) {
+        if (noteF2Flag === false) {
           playkeynote(noteF2, 13);
           noteF2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -860,7 +860,7 @@ document.addEventListener("keydown", function (e) {
       case 81:
         keyG2.className = "keyboardActive"
         noteG2.className = "anchor active"
-        if (noteG2Flag == false) {
+        if (noteG2Flag === false) {
           playkeynote(noteG2, 14);
           noteG2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -871,7 +871,7 @@ document.addEventListener("keydown", function (e) {
       case 87:
         keyA2.className = "keyboardActive"
         noteA2.className = "anchor active"
-        if (noteA2Flag == false) {
+        if (noteA2Flag === false) {
           playkeynote(noteA2, 15);
           noteA2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -882,7 +882,7 @@ document.addEventListener("keydown", function (e) {
       case 69:
         keyB2.className = "keyboardActive"
         noteB2.className = "anchor active"
-        if (noteB2Flag == false) {
+        if (noteB2Flag === false) {
           playkeynote(noteB2, 16);
           noteB2Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -893,7 +893,7 @@ document.addEventListener("keydown", function (e) {
       case 82:
         keyC3.className = "keyboardActive"
         noteC3.className = "anchor active"
-        if (noteC3Flag == false) {
+        if (noteC3Flag === false) {
           playkeynote(noteC3, 17);
           noteC3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -904,7 +904,7 @@ document.addEventListener("keydown", function (e) {
       case 84:
         keyD3.className = "keyboardActive"
         noteD3.className = "anchor active"
-        if (noteD3Flag == false) {
+        if (noteD3Flag === false) {
           playkeynote(noteD3, 18);
           noteD3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -915,7 +915,7 @@ document.addEventListener("keydown", function (e) {
       case 89:
         keyE3.className = "keyboardActive"
         noteE3.className = "anchor active"
-        if (noteE3Flag == false) {
+        if (noteE3Flag === false) {
           playkeynote(noteE3, 19);
           noteE3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -926,7 +926,7 @@ document.addEventListener("keydown", function (e) {
       case 85:
         keyF3.className = "keyboardActive"
         noteF3.className = "anchor active"
-        if (noteF3Flag == false) {
+        if (noteF3Flag === false) {
           playkeynote(noteF3, 20);
           noteF3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -937,7 +937,7 @@ document.addEventListener("keydown", function (e) {
       case 73:
         keyG3.className = "keyboardActive"
         noteG3.className = "anchor active"
-        if (noteG3Flag == false) {
+        if (noteG3Flag === false) {
           playkeynote(noteG3, 21);
           noteG3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -948,7 +948,7 @@ document.addEventListener("keydown", function (e) {
       case 79:
         keyA3.className = "keyboardActive"
         noteA3.className = "anchor active"
-        if (noteA3Flag == false) {
+        if (noteA3Flag === false) {
           playkeynote(noteA3, 22);
           noteA3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -959,7 +959,7 @@ document.addEventListener("keydown", function (e) {
       case 80:
         keyB3.className = "keyboardActive"
         noteB3.className = "anchor active"
-        if (noteB3Flag == false) {
+        if (noteB3Flag === false) {
           playkeynote(noteB3, 23);
           noteB3Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -970,7 +970,7 @@ document.addEventListener("keydown", function (e) {
       case 219:
         keyC4.className = "keyboardActive"
         noteC4.className = "anchor active"
-        if (noteC4Flag == false) {
+        if (noteC4Flag === false) {
           playkeynote(noteC4, 24);
           noteC4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -981,7 +981,7 @@ document.addEventListener("keydown", function (e) {
       case 221:
         keyD4.className = "keyboardActive"
         noteD4.className = "anchor active"
-        if (noteD4Flag == false) {
+        if (noteD4Flag === false) {
           playkeynote(noteD4, 25);
           noteD4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -992,7 +992,7 @@ document.addEventListener("keydown", function (e) {
       case 220:
         keyE4.className = "keyboardActive"
         noteE4.className = "anchor active"
-        if (noteE4Flag == false) {
+        if (noteE4Flag === false) {
           playkeynote(noteE4, 26);
           noteE4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1003,7 +1003,7 @@ document.addEventListener("keydown", function (e) {
       case 103:
         keyF4.className = "keyboardActive"
         noteF4.className = "anchor active"
-        if (noteF4Flag == false) {
+        if (noteF4Flag === false) {
           playkeynote(noteF4, 27);
           noteF4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1014,7 +1014,7 @@ document.addEventListener("keydown", function (e) {
       case 104:
         keyG4.className = "keyboardActive"
         noteG4.className = "anchor active"
-        if (noteG4Flag == false) {
+        if (noteG4Flag === false) {
           playkeynote(noteG4, 28);
           noteG4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1025,7 +1025,7 @@ document.addEventListener("keydown", function (e) {
       case 105:
         keyA4.className = "keyboardActive"
         noteA4.className = "anchor active"
-        if (noteA4Flag == false) {
+        if (noteA4Flag === false) {
           playkeynote(noteA4, 29);
           noteA4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1036,7 +1036,7 @@ document.addEventListener("keydown", function (e) {
       case 65:
         keyB4.className = "keyboardActive"
         noteB4.className = "anchor active"
-        if (noteB4Flag == false) {
+        if (noteB4Flag === false) {
           playkeynote(noteB4, 30);
           noteB4Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1047,7 +1047,7 @@ document.addEventListener("keydown", function (e) {
       case 83:
         keyC5.className = "keyboardActive"
         noteC5.className = "anchor active"
-        if (noteC5Flag == false) {
+        if (noteC5Flag === false) {
           playkeynote(noteC5, 31);
           noteC5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1058,7 +1058,7 @@ document.addEventListener("keydown", function (e) {
       case 68:
         keyD5.className = "keyboardActive"
         noteD5.className = "anchor active"
-        if (noteD5Flag == false) {
+        if (noteD5Flag === false) {
           playkeynote(noteD5, 32);
           noteD5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1069,7 +1069,7 @@ document.addEventListener("keydown", function (e) {
       case 70:
         keyE5.className = "keyboardActive"
         noteE5.className = "anchor active"
-        if (noteE5Flag == false) {
+        if (noteE5Flag === false) {
           playkeynote(noteE5, 33);
           noteE5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1080,7 +1080,7 @@ document.addEventListener("keydown", function (e) {
       case 71:
         keyF5.className = "keyboardActive"
         noteF5.className = "anchor active"
-        if (noteF5Flag == false) {
+        if (noteF5Flag === false) {
           playkeynote(noteF5, 34);
           noteF5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1091,7 +1091,7 @@ document.addEventListener("keydown", function (e) {
       case 72:
         keyG5.className = "keyboardActive"
         noteG5.className = "anchor active"
-        if (noteG5Flag == false) {
+        if (noteG5Flag === false) {
           playkeynote(noteG5, 35);
           noteG5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1102,7 +1102,7 @@ document.addEventListener("keydown", function (e) {
       case 74:
         keyA5.className = "keyboardActive"
         noteA5.className = "anchor active"
-        if (noteA5Flag == false) {
+        if (noteA5Flag === false) {
           playkeynote(noteA5, 36);
           noteA5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1113,7 +1113,7 @@ document.addEventListener("keydown", function (e) {
       case 75:
         keyB5.className = "keyboardActive"
         noteB5.className = "anchor active"
-        if (noteB5Flag == false) {
+        if (noteB5Flag === false) {
           playkeynote(noteB5, 37);
           noteB5Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1124,7 +1124,7 @@ document.addEventListener("keydown", function (e) {
       case 76:
         keyC6.className = "keyboardActive"
         noteC6.className = "anchor active"
-        if (noteC6Flag == false) {
+        if (noteC6Flag === false) {
           playkeynote(noteC6, 38);
           noteC6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1135,7 +1135,7 @@ document.addEventListener("keydown", function (e) {
       case 186: case 59:
         keyD6.className = "keyboardActive"
         noteD6.className = "anchor active"
-        if (noteD6Flag == false) {
+        if (noteD6Flag === false) {
           playkeynote(noteD6, 39);
           noteD6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1147,7 +1147,7 @@ document.addEventListener("keydown", function (e) {
         e.preventDefault();
         keyE6.className = "keyboardActive"
         noteE6.className = "anchor active"
-        if (noteE6Flag == false) {
+        if (noteE6Flag === false) {
           playkeynote(noteE6, 40);
           noteE6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1158,7 +1158,7 @@ document.addEventListener("keydown", function (e) {
       case 100:
         keyF6.className = "keyboardActive"
         noteF6.className = "anchor active"
-        if (noteF6Flag == false) {
+        if (noteF6Flag === false) {
           playkeynote(noteF6, 41);
           noteF6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1169,7 +1169,7 @@ document.addEventListener("keydown", function (e) {
       case 101:
         keyG6.className = "keyboardActive"
         noteG6.className = "anchor active"
-        if (noteG6Flag == false) {
+        if (noteG6Flag === false) {
           playkeynote(noteG6, 42);
           noteG6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1180,7 +1180,7 @@ document.addEventListener("keydown", function (e) {
       case 102:
         keyA6.className = "keyboardActive"
         noteA6.className = "anchor active"
-        if (noteA6Flag == false) {
+        if (noteA6Flag === false) {
           playkeynote(noteA6, 43);
           noteA6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1191,7 +1191,7 @@ document.addEventListener("keydown", function (e) {
       case 90:
         keyB6.className = "keyboardActive"
         noteB6.className = "anchor active"
-        if (noteB6Flag == false) {
+        if (noteB6Flag === false) {
           playkeynote(noteB6, 44);
           noteB6Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1202,7 +1202,7 @@ document.addEventListener("keydown", function (e) {
       case 88:
         keyC7.className = "keyboardActive"
         noteC7.className = "anchor active"
-        if (noteC7Flag == false) {
+        if (noteC7Flag === false) {
           playkeynote(noteC7, 45);
           noteC7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1213,7 +1213,7 @@ document.addEventListener("keydown", function (e) {
       case 67:
         keyD7.className = "keyboardActive"
         noteD7.className = "anchor active"
-        if (noteD7Flag == false) {
+        if (noteD7Flag === false) {
           playkeynote(noteD7, 46);
           noteD7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1224,7 +1224,7 @@ document.addEventListener("keydown", function (e) {
       case 86:
         keyE7.className = "keyboardActive"
         noteE7.className = "anchor active"
-        if (noteE7Flag == false) {
+        if (noteE7Flag === false) {
           playkeynote(noteE7, 47);
           noteE7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1235,7 +1235,7 @@ document.addEventListener("keydown", function (e) {
       case 66:
         keyF7.className = "keyboardActive"
         noteF7.className = "anchor active"
-        if (noteF7Flag == false) {
+        if (noteF7Flag === false) {
           playkeynote(noteF7, 48);
           noteF7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1246,7 +1246,7 @@ document.addEventListener("keydown", function (e) {
       case 78:
         keyG7.className = "keyboardActive"
         noteG7.className = "anchor active"
-        if (noteG7Flag == false) {
+        if (noteG7Flag === false) {
           playkeynote(noteG7, 49);
           noteG7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1257,7 +1257,7 @@ document.addEventListener("keydown", function (e) {
       case 77:
         keyA7.className = "keyboardActive"
         noteA7.className = "anchor active"
-        if (noteA7Flag == false) {
+        if (noteA7Flag === false) {
           playkeynote(noteA7, 50);
           noteA7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1268,7 +1268,7 @@ document.addEventListener("keydown", function (e) {
       case 188:
         keyB7.className = "keyboardActive"
         noteB7.className = "anchor active"
-        if (noteB7Flag == false) {
+        if (noteB7Flag === false) {
           playkeynote(noteB7, 51);
           noteB7Flag = true;
           if (config.app.engine.audio.sequencer.recording) {
@@ -1279,7 +1279,7 @@ document.addEventListener("keydown", function (e) {
       case 190:
         keyC8.className = "keyboardActive"
         noteC8.className = "anchor active"
-        if (noteC8Flag == false) {
+        if (noteC8Flag === false) {
           playkeynote(noteC8, 52);
           noteC8Flag = true;
           if (config.app.engine.audio.sequencer.recording) {

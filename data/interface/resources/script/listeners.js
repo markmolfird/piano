@@ -96,7 +96,7 @@ btnSaveRecordFile.addEventListener("click", function () {
 });
 
 sustainKeyboard.addEventListener("click", function () {
-  if (config.app.options.sustainFlag === false) {
+  if (!config.app.options.sustainFlag) {
     sustainKeyboard.style.left = "52px";
     config.app.options.sustainFlag = true;
     sustainKeyboard.style.backgroundColor = "#404040";
