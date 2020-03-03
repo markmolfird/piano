@@ -3,11 +3,6 @@ document.addEventListener("click", function () {
   transparentShadow.style.display = "none";
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  var toolbar = document.querySelector(".toolbar");
-  if (toolbar) toolbar.style.display = config.context.extension ? "block" : "none";
-});
-
 document.addEventListener("keydown", function (e) {
   if (e.keyCode === 191) e.preventDefault();
   /*  */

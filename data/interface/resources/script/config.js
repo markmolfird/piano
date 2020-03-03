@@ -1,13 +1,33 @@
 var config = {
   "LOG": false,
   "resize": {"timeout": null},
-  "context": {
-    "app": window !== window.top,
-    "extension": window === window.top
-  },
   "addon": {
-    "version": function () {return chrome && chrome.runtime ? chrome.runtime.getManifest().version : ''},
-    "homepage": function () {return chrome && chrome.runtime ? chrome.runtime.getManifest().homepage_url : ''}
+    "homepage": function () {
+      return chrome.runtime.getManifest().homepage_url;
+    }
+  },
+  "storage": {
+    "local": {},
+    "read": function (id) {return config.storage.local[id]},
+    "load": function (callback) {
+      chrome.storage.local.get(null, function (e) {
+        config.storage.local = e;
+        callback();
+      });
+    },
+    "write": function (id, data) {
+      if (id) {
+        if (data !== '' && data !== null && data !== undefined) {
+          var tmp = {};
+          tmp[id] = data;
+          config.storage.local[id] = data;
+          chrome.storage.local.set(tmp, function () {});
+        } else {
+          delete config.storage.local[id];
+          chrome.storage.local.remove(id, function () {});
+        }
+      }
+    }
   },
   "load": function () {
     var reload = document.querySelector("#reload");
@@ -19,71 +39,17 @@ var config = {
     });
     /*  */
     support.addEventListener("click", function () {
-      if (config.context.extension) {
-        var url = config.addon.homepage();
-        chrome.tabs.create({"url": url, "active": true});
-      }
+      var url = config.addon.homepage();
+      chrome.tabs.create({"url": url, "active": true});
     }, false);
     /*  */
     donation.addEventListener("click", function () {
-      if (config.context.extension) {
-        var url = config.addon.homepage() + "?reason=support";
-        chrome.tabs.create({"url": url, "active": true});
-      }
+      var url = config.addon.homepage() + "?reason=support";
+      chrome.tabs.create({"url": url, "active": true});
     }, false);
     /*  */
     window.removeEventListener("load", config.load, false);
     config.storage.load(function () {config.app.load(true)});
-  },
-  "storage": {
-    "local": {},
-    "read": function (id) {return config.storage.local[id]},
-    "write": function (id, data) {
-      if (id) {
-        if (data !== '' && data !== null && data !== undefined) {
-          var tmp = {};
-          tmp[id] = data;
-          config.storage.local[id] = data;
-          if (config.context.extension) {
-            chrome.storage.local.set(tmp, function () {});
-          } else {
-            localStorage.setItem(id, JSON.stringify(data));
-          }
-        } else {
-          delete config.storage.local[id];
-          if (config.context.extension) {
-            chrome.storage.local.remove(id, function () {});
-          } else {
-            localStorage.removeItem(id);
-          }
-        }
-      }
-    },
-    "load": function (callback) {
-      if (config.context.extension) {
-        chrome.storage.local.get(null, function (e) {
-          config.storage.local = e;
-          callback();
-        });
-      } else {
-        var keys = Object.keys(localStorage);
-        var i = keys.length;
-        while (i--) {
-          if (keys[i]) {
-            var item = localStorage.getItem(keys[i]);
-            if (item) {
-              try {
-                config.storage.local[keys[i]] = JSON.parse(item);
-              } catch (e) {
-                config.storage.local[keys[i]] = item;
-              }
-            }
-          }
-        }
-        /*  */
-        callback();
-      }
-    }
   },
   "app": {
     "engine": {

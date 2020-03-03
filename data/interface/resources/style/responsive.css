@@ -1,20 +1,22 @@
 @media (max-width: 900px) {
   body {
-    height: 510px !important;
+    height: 322px !important;
+  }
+  .toolbar {
+    display: none !important;
   }
   #keyboardWrapper, #showKeyboardRow {
     display: none !important;
-  }
-  #topSection {
-    height: 96px !important;
-    padding-top: 3px !important;
-    width: calc(100% - 38px) !important;
   }
   #workingContent {
     margin: 0 !important;
     padding: 0 5px !important;
   }
   #mainSection {
+    height: 250px !important;
     padding-bottom: 5px !important;
+  }
+  ul#piano li .blackKey {
+    height: 50% !important;
   }
 }
