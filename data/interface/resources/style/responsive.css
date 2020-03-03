@@ -1,6 +1,6 @@
 @media (max-width: 900px) {
   body {
-    height: 322px !important;
+    height: auto !important;
   }
   .toolbar {
     display: none !important;
@@ -13,8 +13,9 @@
     padding: 0 5px !important;
   }
   #mainSection {
-    height: 250px !important;
+    max-height: 410px !important;
     padding-bottom: 5px !important;
+    height: calc(100vh - 84px) !important;
   }
   ul#piano li .blackKey {
     height: 50% !important;
