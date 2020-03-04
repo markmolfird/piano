@@ -59,10 +59,10 @@ piano.addEventListener("mouseup", function (e) {
 }, false);
 
 piano.addEventListener("mousedown", function (e) {
-  if (e.target.className == "anchor") {
+  if (e.target.className === "anchor") {
     e.target.className = "anchor active";
     config.app.options.recongizeSequenceMove = true;
-  }
+  };
   /*  */
   if (e.target.className === "blackKey") e.target.firstChild.className = "blackKeyActive";
   if (config.app.engine.audio.sequencer.recording) config.app.engine.audio.sequencer.addNoteOn(e.target.getAttribute("data-note"));
@@ -80,12 +80,12 @@ piano.addEventListener("mousedown", function (e) {
 
 piano.addEventListener("touchmove", function (e) {
   var touches = e.changedTouches;
-  for (var i = 0; i < keyNodes.length; i++) keyNodes[i].className = "anchor";
+  var current = document.elementFromPoint(touches[0].pageX, touches[0].pageY);
   /*  */
-  if (document.elementFromPoint(touches[0].pageX, touches[0].pageY).className === "anchor") {
-    document.elementFromPoint(touches[0].pageX, touches[0].pageY).className = "anchor active";
+  if (current.className === "anchor") {
+    current.className = "anchor active";
     /*  */
-    var audio = config.app.engine.audio.manager.getAudio(document.elementFromPoint(touches[0].pageX, touches[0].pageY).getAttribute("data-note"));
+    var audio = config.app.engine.audio.manager.getAudio(current.getAttribute("data-note"));
     if (audio) {
       window.clearInterval(config.app.options.interval);
       audio.currentTime = 0;
@@ -93,9 +93,30 @@ piano.addEventListener("touchmove", function (e) {
       audio.play();
     }
   }
+  /*  */
+  for (var i = 0; i < keyNodes.length; i++) {
+    if (keyNodes[i] !== current) {
+      keyNodes[i].className = "anchor";
+    }
+  }
 }, false);
 
 piano.addEventListener("touchstart", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  /*  */
+  var touches = e.changedTouches;
+  for (var i = 0; i < touches.length; i++) {
+    if (touches[i].target.className === "blackKey") {
+      touches[i].target.firstChild.className = "blackKeyActive";
+    }
+    /*  */
+    if (touches[i].target.className === "anchor") {
+      touches[i].target.className = "anchor active";
+      config.app.options.recongizeSequenceMove = true;
+    };
+  }
+  /*  */
   var audio = config.app.engine.audio.manager.getAudio(e.changedTouches[0].target.getAttribute("data-note"));
   if (audio) {
     window.clearInterval(config.app.options.interval);
@@ -107,22 +128,12 @@ piano.addEventListener("touchstart", function (e) {
   if (config.app.engine.audio.sequencer.recording) {
     config.app.engine.audio.sequencer.addNoteOn(e.target.getAttribute("data-note"));
   }
-  /*  */
-  var touches = e.changedTouches;
-  for (var i = 0; i < touches.length; i++) {
-    if (touches[i].target.className === "anchor") {
-      config.app.options.recongizeSequenceMove = true;
-      touches[i].target.className = "anchor active";
-    }
-    if (touches[i].target.className === "blackKey") {
-      touches[i].target.firstChild.className = "blackKeyActive";
-    }
-  }
-  /*  */
-  e.preventDefault();
 }, false);
 
 piano.addEventListener("touchend", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  /*  */
   if (!config.app.options.sustainFlag) {
     var audio = config.app.engine.audio.manager.getAudio(e.changedTouches[0].target.getAttribute("data-note"));
     if (audio) {
@@ -153,6 +164,4 @@ piano.addEventListener("touchend", function (e) {
   if (touches[0].target.firstChild.className === "blackKeyActive") {
     touches[0].target.firstChild.className = '';
   }
-  /*  */
-  e.preventDefault();
 }, false);

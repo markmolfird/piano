@@ -29,8 +29,8 @@ var txtSaveRecordFile = document.getElementById("txtSaveRecordFile");
 var transparentShadow = document.getElementById("transparentShadow");
 var btnCancelRecordFile = document.getElementById("btnCancelRecordFile");
 
-var keyNodes = document.getElementsByClassName("anchor");
-var keyLable = document.getElementsByClassName("keyName");
-
 var smallPianoWidth = smallPiano.clientWidth;
 var mainSectionWidth = mainSection.clientWidth;
+
+var keyNodes = [...document.getElementsByClassName("anchor")];
+var keyLable = [...document.getElementsByClassName("keyName")];
