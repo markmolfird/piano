@@ -8,3 +8,5 @@ Chrome: https://chrome.google.com/webstore/detail/piano-prime/cepkojdphimpnlicee
 Firefox: https://addons.mozilla.org/en-US/firefox/addon/piano-prime/  
 Opera: https://addons.opera.com/en/extensions/details/piano-prime  
 Webapp: https://webbrowsertools.com/piano/  
+
+Support & FAQ: https://mybrowseraddon.com/piano.html  
