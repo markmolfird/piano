@@ -12,6 +12,24 @@ piano.addEventListener("mouseover", function (e) {
   }
 }, false);
 
+piano.addEventListener("mousedown", function (e) {
+  if (e.target.className === "anchor") {
+    e.target.className = "anchor active";
+    config.app.options.recongizeSequenceMove = true;
+  };
+  /*  */
+  if (e.target.className === "blackKey") e.target.firstChild.className = "blackKeyActive";
+  if (config.app.engine.audio.sequencer.recording) config.app.engine.audio.sequencer.addNoteOn(e.target.getAttribute("data-note"));
+  /*  */
+  var audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
+  if (audio) {
+    window.clearInterval(config.app.options.interval);
+    audio.currentTime = 0;
+    audio.volume = 1.0;
+    audio.play();
+  }
+}, false);
+
 piano.addEventListener("mouseout", function (e) {
   if (config.app.options.recongizeSequenceMove === true) {
     if (e.target.className === "anchor active") e.target.className = "anchor";
@@ -55,24 +73,6 @@ piano.addEventListener("mouseup", function (e) {
         }
       }, 2);
     }
-  }
-}, false);
-
-piano.addEventListener("mousedown", function (e) {
-  if (e.target.className === "anchor") {
-    e.target.className = "anchor active";
-    config.app.options.recongizeSequenceMove = true;
-  };
-  /*  */
-  if (e.target.className === "blackKey") e.target.firstChild.className = "blackKeyActive";
-  if (config.app.engine.audio.sequencer.recording) config.app.engine.audio.sequencer.addNoteOn(e.target.getAttribute("data-note"));
-  /*  */
-  var audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
-  if (audio) {
-    window.clearInterval(config.app.options.interval);
-    audio.currentTime = 0;
-    audio.volume = 1.0;
-    audio.play();
   }
 }, false);
 

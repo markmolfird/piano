@@ -25,7 +25,7 @@ var stopkeynote = function (note, i) {
   }
 };
 
-﻿var keyA0 = document.getElementById("keyA0");
+var keyA0 = document.getElementById("keyA0");
 var noteA0 = document.getElementById("noteA0");
 var noteA0Flag = false;
 

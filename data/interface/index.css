@@ -181,8 +181,6 @@ body {
   transition: 1000ms;
   box-sizing: border-box;
   background-color: #FFF;
-  -moz-transition: 1000ms;
-  -webkit-transition: 1000ms;
   border-left: 1px solid #777;
 }
 
@@ -190,7 +188,7 @@ body {
   margin: 0;
   border: 0;
   color: #FFF;
-  padding: 10px;
+  padding: 15px;
   font-size: 12px;
   text-align: left;
   font-weight: normal;
@@ -220,7 +218,7 @@ body {
 
 #sidebar table td {
   color: #333;
-  padding: 10px;
+  padding: 20px 10px;
   vertical-align: middle;
 }
 
@@ -239,7 +237,7 @@ table td:last-of-type {
 #sidebar table #range {
   padding: 0;
   width: 100%;
-  height: 32px;
+  height: 42px;
   border-radius: 5px;
   list-style-type: none;
   border: 1px solid #bbb;
@@ -252,7 +250,8 @@ table td:last-of-type {
   height: 100%;
   cursor: pointer;
   font-size: 16px;
-  line-height: 28px;
+  font-weight: 600;
+  line-height: 40px;
   text-align: center;
   font-family: monospace;
   transition: 300ms ease color;
@@ -319,8 +318,6 @@ ul#piano {
   margin-top: 1px;
   overflow: hidden;
   transition: transform 300ms;
-  -moz-transition: transform 300ms;
-  -webkit-transition: transform 300ms;
 }
 
 ul#piano .anchor {
@@ -444,9 +441,34 @@ ul#piano li .blackKey span.blackKeyActive {
 #keyboardWrapper {
   border: 0;
   width: 100%;
-  position: relative;
   margin-bottom: 1px !important;
   background: url('resources/image/pattern.png') repeat;
+}
+
+#keyboardWrapper details {
+  border: 0;
+  padding: 0;
+  margin: auto;
+  outline: none;
+  position: relative;
+  background: transparent;
+}
+
+#keyboardWrapper summary {
+  top: 0;
+  left: 0;
+  z-index: 11;
+  color: #fff;
+  width: 34px;
+  height: 42px;
+  cursor: pointer;
+  font-size: 12px;
+  text-indent: 5px;
+  line-height: 42px;
+  position: absolute;
+  text-align: center;
+  background-color: transparent;
+  font-family: arial,sans-serif;
 }
 
 #container {
@@ -487,8 +509,6 @@ ul#piano li .blackKey span.blackKeyActive {
 #keyboard li:hover {
   background-color: #efefef;
   transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
 }
 
 #keyboard li span {
@@ -562,7 +582,7 @@ ul#piano li .blackKey span.blackKeyActive {
 }
 
 #tblRecordedFiles tr td {
-  padding: 5px;
+  padding: 10px;
 }
 
 #tblRecordedFiles tr td:first-of-type {
@@ -599,7 +619,7 @@ ul#piano li .blackKey span.blackKeyActive {
 }
 
 .playRecoredFile.icon-play {
-  background: #aaaaaa url("resources/image/play.png") no-repeat center center;
+  background: #404040 url("resources/image/play.png") no-repeat center center;
 }
 
 .playRecoredFile.icon-stop {
@@ -703,7 +723,7 @@ ul#piano li .blackKey span.blackKeyActive {
   width: 100%;
   height: 32px;
   outline: none;
-  padding-left: 5px;
+  text-indent: 10px;
   border: solid 1px rgba(0,0,0,0.2);
 }
 
@@ -723,9 +743,9 @@ ul#piano li .blackKey span.blackKeyActive {
 .toolbar div {
 	padding: 0;
 	width: 32px;
-	height: 32px;
+	height: 42px;
 	cursor: pointer;
-	line-height: 32px;
+	line-height: 42px;
 	text-align: center;
 	background-color: transparent;
 }

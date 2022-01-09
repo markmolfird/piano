@@ -3,97 +3,100 @@
   <head>
     <meta charset="utf-8">
     <title>Piano Prime</title>
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <link type="text/css" rel="stylesheet" href="resources/style/responsive.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="resources/style/responsive.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
     <div id="keyboardWrapper">
-      <div id="container">
-        <ul id="keyboard">
-          <li id="keyA0"><span class="keyboardLabel">(A0)</span><span class="blackSign"></span></li>
-          <li id="keyB0" class="symbol">1 <span class="keyboardLabel">(B0)</span></li>
-          <li id="keyC1" class="symbol">2 <span class="keyboardLabel">(C1)</span><span class="blackSign"></span></li>
-          <li id="keyD1" class="symbol">3 <span class="keyboardLabel">(D1)</span><span class="blackSign"></span></li>
-          <li id="keyE1" class="symbol">4 <span class="keyboardLabel">(E1)</span></li>
-          <li id="keyF1" class="symbol">5 <span class="keyboardLabel">(F1)</span><span class="blackSign"></span></li>
-          <li id="keyG1" class="symbol">6 <span class="keyboardLabel">(G1)</span><span class="blackSign"></span></li>
-          <li id="keyA1" class="symbol">7 <span class="keyboardLabel">(A1)</span><span class="blackSign"></span></li>
-          <li id="keyB1" class="symbol">8 <span class="keyboardLabel">(B1)</span></li>
-          <li id="keyC2" class="symbol">9 <span class="keyboardLabel">(C2)</span><span class="blackSign"></span></li>
-          <li id="keyD2" class="symbol">0 <span class="keyboardLabel">(D2)</span><span class="blackSign"></span></li>
-          <li id="keyE2" class="symbol">- <span class="keyboardLabel">(E2)</span></li>
-          <li id="keyF2" class="symbol">= <span class="keyboardLabel">(F2)</span><span class="blackSign"></span></li>
-          <li class="delete diableKeys">backsp</li>
-          <li class="symbol NumLK diableKeys">numLK</li>
-          <li class="symbol diableKeys">/</li>
-          <li class="symbol diableKeys">*</li>
-          <li class="tab diableKeys">tab</li>
-          <li id="keyG2" class="letter">q <span class="keyboardLabel">(G2)</span><span class="blackSign"></span></li>
-          <li id="keyA2" class="letter">w <span class="keyboardLabel">(A2)</span><span class="blackSign"></span></li>
-          <li id="keyB2" class="letter">e <span class="keyboardLabel">(B2)</span></li>
-          <li id="keyC3" class="letter">r <span class="keyboardLabel">(C3)</span><span class="blackSign"></span></li>
-          <li id="keyD3" class="letter">t <span class="keyboardLabel">(D3)</span><span class="blackSign"></span></li>
-          <li id="keyE3" class="letter">y <span class="keyboardLabel">(E3)</span></li>
-          <li id="keyF3" class="letter">u <span class="keyboardLabel">(F3)</span><span class="blackSign"></span></li>
-          <li id="keyG3" class="letter">i <span class="keyboardLabel">(G3)</span><span class="blackSign"></span></li>
-          <li id="keyA3" class="letter">o <span class="keyboardLabel">(A3)</span><span class="blackSign"></span></li>
-          <li id="keyB3" class="letter">p <span class="keyboardLabel">(B3)</span></li>
-          <li id="keyC4" class="symbol">[ <span class="keyboardLabel">(C4)</span><span class="blackSign"></span></li>
-          <li id="keyD4" class="symbol">] <span class="keyboardLabel">(D4)</span><span class="blackSign"></span></li>
-          <li id="keyE4" class="symbol">\ <span class="keyboardLabel">(E4)</span></li>
-          <li id="keyF4" class="symbol">7 <span class="keyboardLabel">(F4)</span><span class="blackSign"></span></li>
-          <li id="keyG4" class="symbol">8 <span class="keyboardLabel">(G4)</span><span class="blackSign"></span></li>
-          <li id="keyA4" class="symbol">9 <span class="keyboardLabel">(A4)</span><span class="blackSign"></span></li>
-          <li class="capslock diableKeys">caps lock</li>
-          <li id="keyB4" class="letter">a <span class="keyboardLabel">(B4)</span></li>
-          <li id="keyC5" class="letter">s <span class="keyboardLabel">(C5)</span><span class="blackSign"></span></li>
-          <li id="keyD5" class="letter">d <span class="keyboardLabel">(D5)</span><span class="blackSign"></span></li>
-          <li id="keyE5" class="letter">f <span class="keyboardLabel">(E5)</span></li>
-          <li id="keyF5" class="letter">g <span class="keyboardLabel">(F5)</span><span class="blackSign"></span></li>
-          <li id="keyG5" class="letter">h <span class="keyboardLabel">(G5)</span><span class="blackSign"></span></li>
-          <li id="keyA5" class="letter">j <span class="keyboardLabel">(A5)</span><span class="blackSign"></span></li>
-          <li id="keyB5" class="letter">k <span class="keyboardLabel">(B5)</span></li>
-          <li id="keyC6" class="letter">l <span class="keyboardLabel">(C6)</span><span class="blackSign"></span></li>
-          <li id="keyD6" class="symbol">; <span class="keyboardLabel">(D6)</span><span class="blackSign"></span></li>
-          <li id="keyE6" class="symbol">' <span class="keyboardLabel">(E6)</span></li>
-          <li class="return lastitem diableKeys">enter</li>
-          <li id="keyF6" class="symbol">4 <span class="keyboardLabel">(F6)</span><span class="blackSign"></span></li>
-          <li id="keyG6" class="symbol">5 <span class="keyboardLabel">(G6)</span><span class="blackSign"></span></li>
-          <li id="keyA6" class="symbol">6 <span class="keyboardLabel">(A6)</span><span class="blackSign"></span></li>
-          <li class="left-shift diableKeys">shift</li>
-          <li id="keyB6" class="letter">z <span class="keyboardLabel">(B6)</span></li>
-          <li id="keyC7" class="letter">x <span class="keyboardLabel">(C7)</span><span class="blackSign"></span></li>
-          <li id="keyD7" class="letter">c <span class="keyboardLabel">(D7)</span><span class="blackSign"></span></li>
-          <li id="keyE7" class="letter">v <span class="keyboardLabel">(E7)</span></li>
-          <li id="keyF7" class="letter">b <span class="keyboardLabel">(F7)</span><span class="blackSign"></span></li>
-          <li id="keyG7" class="letter">n <span class="keyboardLabel">(G7)</span><span class="blackSign"></span></li>
-          <li id="keyA7" class="letter">m <span class="keyboardLabel">(A7)</span><span class="blackSign"></span></li>
-          <li id="keyB7" class="symbol">, <span class="keyboardLabel">(B7)</span></li>
-          <li id="keyC8" class="symbol">. <span class="keyboardLabel">(C8)</span></li>
-          <li class="symbol diableKeys">/</li>
-          <li class="right-shift lastitem diableKeys">shift</li>
-          <li class="symbol diableKeys">1</li>
-          <li class="symbol diableKeys">2</li>
-          <li class="symbol diableKeys">3</li>
-        </ul>
-      </div>
+      <details open>
+        <summary></summary>
+        <div id="container">
+          <ul id="keyboard">
+            <li id="keyA0"><span class="keyboardLabel">(A0)</span><span class="blackSign"></span></li>
+            <li id="keyB0" class="symbol">1 <span class="keyboardLabel">(B0)</span></li>
+            <li id="keyC1" class="symbol">2 <span class="keyboardLabel">(C1)</span><span class="blackSign"></span></li>
+            <li id="keyD1" class="symbol">3 <span class="keyboardLabel">(D1)</span><span class="blackSign"></span></li>
+            <li id="keyE1" class="symbol">4 <span class="keyboardLabel">(E1)</span></li>
+            <li id="keyF1" class="symbol">5 <span class="keyboardLabel">(F1)</span><span class="blackSign"></span></li>
+            <li id="keyG1" class="symbol">6 <span class="keyboardLabel">(G1)</span><span class="blackSign"></span></li>
+            <li id="keyA1" class="symbol">7 <span class="keyboardLabel">(A1)</span><span class="blackSign"></span></li>
+            <li id="keyB1" class="symbol">8 <span class="keyboardLabel">(B1)</span></li>
+            <li id="keyC2" class="symbol">9 <span class="keyboardLabel">(C2)</span><span class="blackSign"></span></li>
+            <li id="keyD2" class="symbol">0 <span class="keyboardLabel">(D2)</span><span class="blackSign"></span></li>
+            <li id="keyE2" class="symbol">- <span class="keyboardLabel">(E2)</span></li>
+            <li id="keyF2" class="symbol">= <span class="keyboardLabel">(F2)</span><span class="blackSign"></span></li>
+            <li class="delete diableKeys">backsp</li>
+            <li class="symbol NumLK diableKeys">numLK</li>
+            <li class="symbol diableKeys">/</li>
+            <li class="symbol diableKeys">*</li>
+            <li class="tab diableKeys">tab</li>
+            <li id="keyG2" class="letter">q <span class="keyboardLabel">(G2)</span><span class="blackSign"></span></li>
+            <li id="keyA2" class="letter">w <span class="keyboardLabel">(A2)</span><span class="blackSign"></span></li>
+            <li id="keyB2" class="letter">e <span class="keyboardLabel">(B2)</span></li>
+            <li id="keyC3" class="letter">r <span class="keyboardLabel">(C3)</span><span class="blackSign"></span></li>
+            <li id="keyD3" class="letter">t <span class="keyboardLabel">(D3)</span><span class="blackSign"></span></li>
+            <li id="keyE3" class="letter">y <span class="keyboardLabel">(E3)</span></li>
+            <li id="keyF3" class="letter">u <span class="keyboardLabel">(F3)</span><span class="blackSign"></span></li>
+            <li id="keyG3" class="letter">i <span class="keyboardLabel">(G3)</span><span class="blackSign"></span></li>
+            <li id="keyA3" class="letter">o <span class="keyboardLabel">(A3)</span><span class="blackSign"></span></li>
+            <li id="keyB3" class="letter">p <span class="keyboardLabel">(B3)</span></li>
+            <li id="keyC4" class="symbol">[ <span class="keyboardLabel">(C4)</span><span class="blackSign"></span></li>
+            <li id="keyD4" class="symbol">] <span class="keyboardLabel">(D4)</span><span class="blackSign"></span></li>
+            <li id="keyE4" class="symbol">\ <span class="keyboardLabel">(E4)</span></li>
+            <li id="keyF4" class="symbol">7 <span class="keyboardLabel">(F4)</span><span class="blackSign"></span></li>
+            <li id="keyG4" class="symbol">8 <span class="keyboardLabel">(G4)</span><span class="blackSign"></span></li>
+            <li id="keyA4" class="symbol">9 <span class="keyboardLabel">(A4)</span><span class="blackSign"></span></li>
+            <li class="capslock diableKeys">caps lock</li>
+            <li id="keyB4" class="letter">a <span class="keyboardLabel">(B4)</span></li>
+            <li id="keyC5" class="letter">s <span class="keyboardLabel">(C5)</span><span class="blackSign"></span></li>
+            <li id="keyD5" class="letter">d <span class="keyboardLabel">(D5)</span><span class="blackSign"></span></li>
+            <li id="keyE5" class="letter">f <span class="keyboardLabel">(E5)</span></li>
+            <li id="keyF5" class="letter">g <span class="keyboardLabel">(F5)</span><span class="blackSign"></span></li>
+            <li id="keyG5" class="letter">h <span class="keyboardLabel">(G5)</span><span class="blackSign"></span></li>
+            <li id="keyA5" class="letter">j <span class="keyboardLabel">(A5)</span><span class="blackSign"></span></li>
+            <li id="keyB5" class="letter">k <span class="keyboardLabel">(B5)</span></li>
+            <li id="keyC6" class="letter">l <span class="keyboardLabel">(C6)</span><span class="blackSign"></span></li>
+            <li id="keyD6" class="symbol">; <span class="keyboardLabel">(D6)</span><span class="blackSign"></span></li>
+            <li id="keyE6" class="symbol">' <span class="keyboardLabel">(E6)</span></li>
+            <li class="return lastitem diableKeys">enter</li>
+            <li id="keyF6" class="symbol">4 <span class="keyboardLabel">(F6)</span><span class="blackSign"></span></li>
+            <li id="keyG6" class="symbol">5 <span class="keyboardLabel">(G6)</span><span class="blackSign"></span></li>
+            <li id="keyA6" class="symbol">6 <span class="keyboardLabel">(A6)</span><span class="blackSign"></span></li>
+            <li class="left-shift diableKeys">shift</li>
+            <li id="keyB6" class="letter">z <span class="keyboardLabel">(B6)</span></li>
+            <li id="keyC7" class="letter">x <span class="keyboardLabel">(C7)</span><span class="blackSign"></span></li>
+            <li id="keyD7" class="letter">c <span class="keyboardLabel">(D7)</span><span class="blackSign"></span></li>
+            <li id="keyE7" class="letter">v <span class="keyboardLabel">(E7)</span></li>
+            <li id="keyF7" class="letter">b <span class="keyboardLabel">(F7)</span><span class="blackSign"></span></li>
+            <li id="keyG7" class="letter">n <span class="keyboardLabel">(G7)</span><span class="blackSign"></span></li>
+            <li id="keyA7" class="letter">m <span class="keyboardLabel">(A7)</span><span class="blackSign"></span></li>
+            <li id="keyB7" class="symbol">, <span class="keyboardLabel">(B7)</span></li>
+            <li id="keyC8" class="symbol">. <span class="keyboardLabel">(C8)</span></li>
+            <li class="symbol diableKeys">/</li>
+            <li class="right-shift lastitem diableKeys">shift</li>
+            <li class="symbol diableKeys">1</li>
+            <li class="symbol diableKeys">2</li>
+            <li class="symbol diableKeys">3</li>
+          </ul>
+        </div>
+      </details>
       <div style="clear:both;"></div>
     </div>
     <div id="wrapper">
       <div class="toolbar">
         <div id="reload" title="Reload UI">
-          <svg height="12" width="12" viewBox="0 0 512 512">
+          <svg height="10" width="10" viewBox="0 0 512 512">
             <path d="M281.525,228.102l104.758-78.042 c12.082-12.085,12.082-24.259,0-36.342L281.525,35.674c-3.274-2.359-7.359-3.725-11.723-3.725c-10.992,0-19.803,8.536-19.803,19.083  v35.429C144.611,86.737,59.205,172.046,59.205,277.258c0,105.396,85.672,190.793,191.248,190.793 c98.03,0,178.809-73.498,189.977-168.169c0.092-0.275,0.367-3.187,0.367-4.455c0-9.992-8.181-18.169-18.261-18.169h-45.793 c-14.993,0-26.349,10.355-27.893,18.986c-8.811,46.156-49.519,80.954-98.397,80.954c-55.329,0-100.127-44.701-100.127-99.94 c0-55.064,44.523-99.667,99.674-99.941v35.437c0,10.541,8.811,19.076,19.803,19.076C274.166,231.83,278.251,230.471,281.525,228.102 z"/>
           </svg>
         </div>
         <div id="support" title="Open support page">
-          <svg height="12" width="12" viewBox="0 0 1792 1792">
+          <svg height="10" width="10" viewBox="0 0 1792 1792">
             <path d="M1088 1256v240q0 16-12 28t-28 12h-240q-16 0-28-12t-12-28v-240q0-16 12-28t28-12h240q16 0 28 12t12 28zm316-600q0 54-15.5 101t-35 76.5-55 59.5-57.5 43.5-61 35.5q-41 23-68.5 65t-27.5 67q0 17-12 32.5t-28 15.5h-240q-15 0-25.5-18.5t-10.5-37.5v-45q0-83 65-156.5t143-108.5q59-27 84-56t25-76q0-42-46.5-74t-107.5-32q-65 0-108 29-35 25-107 115-13 16-31 16-12 0-25-8l-164-125q-13-10-15.5-25t5.5-28q160-266 464-266 80 0 161 31t146 83 106 127.5 41 158.5z"/>
           </svg>
         </div>
         <div id="donation" title="Make a donation">
-          <svg height="12" width="12" viewBox="-0.709 -11.555 141.732 141.732">
+          <svg height="10" width="10" viewBox="-0.709 -11.555 141.732 141.732">
             <path d="M140.314,37.654C140.314,16.858,123.402,0,102.537,0c-13.744,0-25.77,7.317-32.379,18.255C63.549,7.317,51.521,0,37.777,0 C16.912,0,0,16.858,0,37.654c0,10.821,4.588,20.57,11.922,27.438h-0.01l54.084,51.584c0.992,1.188,2.48,1.945,4.148,1.945 c1.545,0,2.936-0.653,3.92-1.696l54.346-51.833h-0.016C135.729,58.225,140.314,48.476,140.314,37.654"/>
           </svg>
         </div>
@@ -293,7 +296,6 @@
     <script type="text/javascript" src="resources/script/audiomanager.js"></script>
     <script type="text/javascript" src="resources/script/audiosequencer.js"></script>
     <!-- -->
-    <script type="text/javascript" src="resources/script/config.js"></script>
     <script type="text/javascript" src="resources/script/listeners.js"></script>
     <script type="text/javascript" src="resources/script/piano.js"></script>
     <!-- -->

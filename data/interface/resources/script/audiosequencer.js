@@ -1,4 +1,4 @@
-var AudioSequencer = ﻿function () {
+var AudioSequencer = function () {
   var events = [];
   var lastTime = 0;
   var timeoutID = 0;
