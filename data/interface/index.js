@@ -1,8 +1,5 @@
 var config = {
   "LOG": false,
-  "resize": {
-    "timeout": null
-  },
   "addon": {
     "homepage": function () {
       return chrome.runtime.getManifest().homepage_url;
@@ -14,7 +11,7 @@ var config = {
       if (config.port.name === "win") {
         if (config.resize.timeout) window.clearTimeout(config.resize.timeout);
         config.resize.timeout = window.setTimeout(async function () {
-          var current = await chrome.windows.getCurrent();
+          const current = await chrome.windows.getCurrent();
           /*  */
           config.storage.write("interface.size", {
             "top": current.top,
@@ -30,7 +27,7 @@ var config = {
     "name": '',
     "connect": function () {
       config.port.name = "webapp";
-      var context = document.documentElement.getAttribute("context");
+      const context = document.documentElement.getAttribute("context");
       /*  */
       if (chrome.runtime) {
         if (chrome.runtime.connect) {
@@ -62,7 +59,7 @@ var config = {
     "write": function (id, data) {
       if (id) {
         if (data !== '' && data !== null && data !== undefined) {
-          var tmp = {};
+          let tmp = {};
           tmp[id] = data;
           config.storage.local[id] = data;
           chrome.storage.local.set(tmp, function () {});
@@ -74,9 +71,9 @@ var config = {
     }
   },
   "load": function () {
-    var reload = document.querySelector("#reload");
-    var support = document.querySelector("#support");
-    var donation = document.querySelector("#donation");
+    const reload = document.querySelector("#reload");
+    const support = document.querySelector("#support");
+    const donation = document.querySelector("#donation");
     /*  */
     reload.addEventListener("click", function () {
       document.location.reload();
@@ -84,14 +81,14 @@ var config = {
     /*  */
     support.addEventListener("click", function () {
       if (config.port.name !== "webapp") {
-        var url = config.addon.homepage();
+        const url = config.addon.homepage();
         chrome.tabs.create({"url": url, "active": true});
       }
     }, false);
     /*  */
     donation.addEventListener("click", function () {
       if (config.port.name !== "webapp") {
-        var url = config.addon.homepage() + "?reason=support";
+        const url = config.addon.homepage() + "?reason=support";
         chrome.tabs.create({"url": url, "active": true});
       }
     }, false);
@@ -121,6 +118,7 @@ var config = {
       "interval": undefined,
       "handleIndexSmall": 0,
       "handleIndexLarge": 0,
+      "toggleKeyboard": true,
       "deletedFileTemp": null,
       "showKeyboardFlag": true,
       "nowPlayingRecoredFile": null,
@@ -132,10 +130,16 @@ var config = {
       /*  */
       if (config.storage.read("sustainControl") === undefined) config.storage.write("sustainControl", config.app.options.sustainFlag);
       if (config.storage.read("showKeyboard") === undefined) config.storage.write("showKeyboard", config.app.options.showKeyboardFlag);
+      if (config.storage.read("toggleKeyboard") === undefined) config.storage.write("toggleKeyboard", config.app.options.toggleKeyboard);
       /*  */
       if (restore) {
         if (config.storage.read("numberOfKeys") !== undefined) {
           config.app.options.numberOfKeys = Number(config.storage.read("numberOfKeys"));
+        }
+        /*  */
+        if (config.storage.read("toggleKeyboard") !== undefined) {
+          config.app.options.toggleKeyboard = config.storage.read("toggleKeyboard");
+          keyboardWrapper.querySelector("details").open = config.app.options.toggleKeyboard;
         }
         /*  */
         if (config.storage.read("sustainControl") !== undefined) {
@@ -184,7 +188,7 @@ var config = {
       },
       "reset": {
         "piano": function () {
-          var id = config.app.methods.supported.properties.name(config.app.options.transform);
+          const id = config.app.methods.supported.properties.name(config.app.options.transform);
           /*  */
           handle.style.left = "0";
           config.app.options.handleIndexLarge = 0;
@@ -198,7 +202,7 @@ var config = {
       "supported": {
         "properties": {
           "name": function (e) {
-            for (var i = 0; i < e.length; i++) {
+            for (let i = 0; i < e.length; i++) {
               if (typeof document.body.style[e[i]] !== "undefined") {
                 return e[i];
               }
@@ -211,9 +215,9 @@ var config = {
       "resize": {
         "keys": function (e) {
           config.app.methods.reset.piano();
+          const keyWidth = e / config.app.options.numberOfKeys - 1;
           /*  */
-          var keyWidth = Math.floor(e / config.app.options.numberOfKeys);
-          for (var i = 0; i < keyNodes.length; i++) {
+          for (let i = 0; i < keyNodes.length; i++) {
             keyNodes[i].style.width = keyWidth + "px";
           }
           /*  */
@@ -230,10 +234,10 @@ var config = {
         "number": {
           "of": {
             "keys": function() {
-              var n = 27;
-              var content = document.getElementById("workingContent");
+              let n = 27;
+              const content = document.getElementById("workingContent");
               if (content) {
-                var width = window.getComputedStyle(content).width;
+                let width = window.getComputedStyle(content).width;
                 if (width) {
                   width = parseInt(width);
                   n = Math.floor(width / 48);
@@ -263,14 +267,14 @@ var config = {
               break;
               /*  */
               case AudioSequencer.eventCodes.noteOff:
-                var counter = 100;
+                let counter = 100;
                 var audio = config.app.engine.audio.manager.getAudio(n);
                 config.app.options.interval = setInterval(function () {
                   if (counter === 1) clearInterval(config.app.options.interval);
                   else {
                     counter = counter - 1;
                     if (audio.volume > 0) {
-                      var volume = audio.volume - 0.01;
+                      const volume = audio.volume - 0.01;
                       audio.volume = volume > 0 ? volume : 0;
                     }
                   }
@@ -306,7 +310,7 @@ var config = {
           e.preventDefault();
           /*  */
           if (config.app.options.dragData) {
-            var handleStyle = window.getComputedStyle(handle);
+            const handleStyle = window.getComputedStyle(handle);
             /*  */
             if (e.clientX < config.app.options.tempPosition && parseFloat(handleStyle.left) <= 0) {
               handle.style.left = "0";
@@ -323,23 +327,23 @@ var config = {
       "load": {
         "recorded": {
           "files": function () {
-            var playNode;
-            var deleteNode;
-            var downloadNode;
-            var tableRowNode;
-            var rowCounterNode;
-            var nameTableCellNode;
-            var playTableCellNode;
-            var deleteTableCellNode;
-            var downloadTableCellNode;
+            let playNode;
+            let deleteNode;
+            let downloadNode;
+            let tableRowNode;
+            let rowCounterNode;
+            let nameTableCellNode;
+            let playTableCellNode;
+            let deleteTableCellNode;
+            let downloadTableCellNode;
             /*  */
-            var count = 0;
+            let count = 0;
             tblRecordedFiles.textContent = '';
-            for (var id in config.storage.local) {
-              var item = config.storage.local[id];
+            for (let id in config.storage.local) {
+              let item = config.storage.local[id];
               if (item !== undefined) {
                 try {
-                  var details = JSON.parse(item);
+                  let details = JSON.parse(item);
                   if (details && details.length) {
                     tableRowNode = document.createElement("tr");
                     rowCounterNode = document.createElement("td");
@@ -348,7 +352,7 @@ var config = {
                     deleteTableCellNode = document.createElement("td");
                     downloadTableCellNode = document.createElement("td");
                     /*  */
-                    var href = config.app.engine.audio.recorder.result.items[id];
+                    let href = config.app.engine.audio.recorder.result.items[id];
                     rowCounterNode.textContent = (++count).toString();
                     nameTableCellNode.textContent = id;
                     /*  */
@@ -389,72 +393,84 @@ var config = {
       "compute": {
         "handle": {
           "position": function (type) {
-            var transformProperty = config.app.methods.supported.properties.name(config.app.options.transform);
+            let transformProperty = config.app.methods.supported.properties.name(config.app.options.transform);
             /*  */
             if (type === 4) {
               if (config.app.options.handleIndexLarge < config.app.options.maxIndexLarge) {
-                var str1 = "translate3d(";
+                let str1 = "translate3d(";
                 config.app.options.handleIndexLarge++;
                 /*  */
                 config.app.options.handleIndexSmall = Math.ceil(((config.app.options.maxIndexSmall) / (config.app.options.maxIndexLarge)) * (config.app.options.handleIndexLarge));
-                var handleMove = (((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexLarge * config.app.options.handleIndexLarge));
+                let handleMove = (((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexLarge * config.app.options.handleIndexLarge));
                 if (handleMove >= smallPianoWidth - handle.clientWidth) handleMove = smallPianoWidth - handle.clientWidth;
                 handle.style.left = handleMove + "px";
                 /*  */
-                var pianoRangeMove = (((config.app.options.pianoWidth - mainSectionWidth) / (config.app.options.maxIndexLarge) * (config.app.options.handleIndexLarge)));
+                let pianoRangeMove = (((config.app.options.pianoWidth - mainSectionWidth) / (config.app.options.maxIndexLarge) * (config.app.options.handleIndexLarge)));
                 if (pianoRangeMove > config.app.options.pianoWidth - mainSectionWidth) {
                   pianoRangeMove = (pianoRangeMove - Math.abs(config.app.options.pianoWidth - (mainSectionWidth + (config.app.options.maxIndexLarge * (config.app.options.pianoWidth / (config.app.options.maxIndexLarge + 1))))));
                 }
-                var str2ForPiano = -pianoRangeMove + "px, 0, 0)";
-                if (transformProperty) piano.style[transformProperty] = str1.concat(str2ForPiano);
+                /*  */
+                if (transformProperty) {
+                  const str2ForPiano = -pianoRangeMove + "px, 0, 0)";
+                  piano.style[transformProperty] = str1.concat(str2ForPiano);
+                }
               }
             } else if (type === 3) {
               config.app.options.handleIndexLarge = Math.floor(config.app.options.handleIndexSmall / (config.app.options.maxIndexSmall / config.app.options.maxIndexLarge));
               if (config.app.options.handleIndexSmall < config.app.options.maxIndexSmall) {
-                var str1 = "translate3d(";
+                let str1 = "translate3d(";
                 config.app.options.handleIndexSmall++;
                 /*  */
-                var handleMove = ((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexSmall * config.app.options.handleIndexSmall);
+                let handleMove = ((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexSmall * config.app.options.handleIndexSmall);
                 if (handleMove >= smallPianoWidth - handle.clientWidth)
                   handleMove = smallPianoWidth - handle.clientWidth;
                 handle.style.left = handleMove + "px";
-                var pianoRangeMove = (((config.app.options.pianoWidth - mainSectionWidth) / (config.app.options.maxIndexSmall) * (config.app.options.handleIndexSmall)));
+                let pianoRangeMove = (((config.app.options.pianoWidth - mainSectionWidth) / (config.app.options.maxIndexSmall) * (config.app.options.handleIndexSmall)));
                 if (pianoRangeMove > config.app.options.pianoWidth - mainSectionWidth) {
                   pianoRangeMove = Math.ceil(pianoRangeMove - Math.abs(config.app.options.pianoWidth - (mainSectionWidth + (config.app.options.maxIndexSmall * (config.app.options.pianoWidth / (config.app.options.maxIndexSmall + 1))))));
                 }
-                var str2ForPiano = -pianoRangeMove + "px, 0, 0)";
-                if (transformProperty) piano.style[transformProperty] = str1.concat(str2ForPiano);
+                /*  */
+                if (transformProperty) {
+                  const str2ForPiano = -pianoRangeMove + "px, 0, 0)";
+                  piano.style[transformProperty] = str1.concat(str2ForPiano);
+                }
               }
             } else if (type === 2) {
               config.app.options.handleIndexLarge = Math.floor(config.app.options.handleIndexSmall / (config.app.options.maxIndexSmall / config.app.options.maxIndexLarge));
               if (config.app.options.handleIndexSmall > 0) {
-                var str1 = "translate3d(";
+                let str1 = "translate3d(";
                 config.app.options.handleIndexSmall--;
                 /*  */
-                var handleMove = ((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexSmall * config.app.options.handleIndexSmall);
+                let handleMove = ((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexSmall * config.app.options.handleIndexSmall);
                 handle.style.left = handleMove + "px";
-                var pianoRangeMove = Math.ceil(((config.app.options.pianoWidth - mainSectionWidth) / (config.app.options.maxIndexSmall) * (config.app.options.handleIndexSmall)));
+                let pianoRangeMove = Math.ceil(((config.app.options.pianoWidth - mainSectionWidth) / (config.app.options.maxIndexSmall) * (config.app.options.handleIndexSmall)));
                 if (pianoRangeMove > config.app.options.pianoWidth - mainSectionWidth) {
                   pianoRangeMove = pianoRangeMove - Math.abs(config.app.options.pianoWidth - (mainSectionWidth + (config.app.options.maxIndexSmall * (config.app.options.pianoWidth / (config.app.options.maxIndexSmall + 1)))));
                 }
-                var str2ForPiano = -pianoRangeMove + "px, 0, 0)";
-                if (transformProperty) piano.style[transformProperty] = str1.concat(str2ForPiano);
+                /*  */
+                if (transformProperty) {
+                  const str2ForPiano = -pianoRangeMove + "px, 0, 0)";
+                  piano.style[transformProperty] = str1.concat(str2ForPiano);
+                }
               }
             } else if (type === 1) {
               if (config.app.options.handleIndexLarge > 0) {
-                var str1 = "translate3d(";
+                let str1 = "translate3d(";
                 config.app.options.handleIndexLarge--;
                 /*  */
                 config.app.options.handleIndexSmall = Math.ceil((config.app.options.maxIndexSmall / config.app.options.maxIndexLarge) * config.app.options.handleIndexLarge);
-                var handleMove = (((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexLarge * config.app.options.handleIndexLarge));
+                let handleMove = (((smallPianoWidth - handle.clientWidth) / config.app.options.maxIndexLarge * config.app.options.handleIndexLarge));
                 if (handleMove >= smallPianoWidth - handle.clientWidth) handleMove = smallPianoWidth - handle.clientWidth;
                 handle.style.left = handleMove + "px";
-                var pianoRangeMove = (config.app.options.pianoWidth / (config.app.options.maxIndexLarge + 1) * (config.app.options.handleIndexLarge));
+                let pianoRangeMove = (config.app.options.pianoWidth / (config.app.options.maxIndexLarge + 1) * (config.app.options.handleIndexLarge));
                 if (pianoRangeMove > config.app.options.pianoWidth - mainSectionWidth) {
                   pianoRangeMove = pianoRangeMove - Math.abs(config.app.options.pianoWidth - (mainSectionWidth + (config.app.options.maxIndexLarge * (config.app.options.pianoWidth / (config.app.options.maxIndexLarge + 1)))));
                 }
-                var str2ForPiano = -pianoRangeMove + "px, 0, 0)";
-                if (transformProperty) piano.style[transformProperty] = str1.concat(str2ForPiano);
+                /*  */
+                if (transformProperty) {
+                  const str2ForPiano = -pianoRangeMove + "px, 0, 0)";
+                  piano.style[transformProperty] = str1.concat(str2ForPiano);
+                }
               }
             }
           }

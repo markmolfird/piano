@@ -21,6 +21,11 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #282828;
+  background-image: url('resources/image/pattern.png');
+  background-position: center;
+  background-repeat: repeat;
+  background-size: auto;
 }
 
 ol {
@@ -44,7 +49,6 @@ table {
 body {
   min-width: 250px;
   user-select: none;
-  background-color: #FFFFFF;
   -webkit-touch-callout: none;
   overflow: hidden !important;
   -webkit-tap-highlight-color: rgba(255,255,255,0.0);
@@ -52,23 +56,24 @@ body {
 
 #wrapper {
   border: 0;
+  width: 100vw;
   margin: 0 auto;
   position: relative;
   overflow: hidden !important;
-  background: url("resources/image/pattern.png") repeat;
+  box-shadow: 0 1px 0 #505050;
 }
 
 #transparent {
   left: 0;
   right: 0;
-  height: 12px;
+  height: 9px;
   position: absolute;
   text-align: center;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.60) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgb(255 255 255 / 35%) 0%,rgba(0,0,0,0) 100%);
 }
 
 #workingContent {
-  margin: 0 34px;
+  margin: 0 38px;
   padding: 0 10px;
   box-shadow: -1px 1px 0 #505050, 1px 1px 0 #505050;
 }
@@ -79,10 +84,11 @@ body {
   display: flex;
   direction: rtl;
   padding-top: 0;
+  column-gap: 1px;
   position: relative;
   align-items: center;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .recordOn svg {
@@ -95,7 +101,7 @@ body {
 
 #topSection #smallPiano {
   border: 0;
-  width: 65%;
+  width: 100%;
   height: 52px;
   cursor: pointer;
   overflow: hidden;
@@ -106,28 +112,30 @@ body {
 }
 
 #topSection .buttonWrapper {
-  width: 42px;
-  height: 42px;
+  flex: 1;
+  height: 52px;
+  min-width: 42px;
+  max-width: 92px;
   position: relative;
 }
 
 #topSection .navigationButton {
   border: 0;
+  width: 100%;
   z-index: 50;
-  height: 42px;
+  height: 100%;
+  display: flex;
   color: #ececec;
   margin: 0 auto;
-  display: block;
   cursor: pointer;
-  line-height: 42px;
-  border-radius: 50%;
-  text-align: center;
   position: relative;
+  align-items: center;
+  justify-content: center;
   transition: 300ms ease background-color;
 }
 
 #topSection .navigationButton:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgb(155 155 155 / 10%);
 }
 
 #topSection .navigationButton svg {
@@ -149,6 +157,7 @@ body {
 
 #mainSection {
   padding: 0;
+  width: 100%;
   height: 410px;
   overflow: hidden;
   border-left: none;
@@ -189,11 +198,11 @@ body {
   border: 0;
   color: #FFF;
   padding: 15px;
-  font-size: 12px;
+  font-size: 13px;
   text-align: left;
   font-weight: normal;
   background-color: #404040;
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
 }
 
 #sidebar h1 span {
@@ -211,14 +220,14 @@ body {
   padding: 0;
   width: 100%;
   margin: 0 auto;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: normal;
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
 }
 
 #sidebar table td {
   color: #333;
-  padding: 20px 10px;
+  padding: 15px 10px;
   vertical-align: middle;
 }
 
@@ -249,12 +258,12 @@ table td:last-of-type {
   float: right;
   height: 100%;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 40px;
   text-align: center;
   font-family: monospace;
-  transition: 300ms ease color;
+  transition: 300ms ease all;
 }
 
 #sidebar table #range li:first-of-type {
@@ -262,7 +271,8 @@ table td:last-of-type {
 }
 
 #sidebar table #range li:hover {
-  color: #333;
+  color: #555;
+  background: rgba(0,0,0,0.1);
 }
 
 #sidebar .toggle {
@@ -311,10 +321,10 @@ table td:last-of-type {
 
 ul#piano {
   border: 0;
-  margin: 0;
   padding: 0;
   width: 300%;
   height: 100%;
+  margin: 0 auto;
   margin-top: 1px;
   overflow: hidden;
   transition: transform 300ms;
@@ -363,6 +373,7 @@ ul#piano li label.keyName {
   padding: 0;
   bottom: 3px;
   font-size: 12px;
+  font-weight: 600;
   margin-left: auto;
   line-height: 22px;
   text-align: center;
@@ -441,8 +452,7 @@ ul#piano li .blackKey span.blackKeyActive {
 #keyboardWrapper {
   border: 0;
   width: 100%;
-  margin-bottom: 1px !important;
-  background: url('resources/image/pattern.png') repeat;
+  box-shadow: 0 0 1px #505050;
 }
 
 #keyboardWrapper details {
@@ -454,13 +464,18 @@ ul#piano li .blackKey span.blackKeyActive {
   background: transparent;
 }
 
+#keyboardWrapper details[open] summary {
+  height: 100%;
+  line-height: 42px;
+}
+
 #keyboardWrapper summary {
   top: 0;
   left: 0;
   z-index: 11;
   color: #fff;
-  width: 34px;
-  height: 42px;
+  width: 38px;
+  height: 84px;
   cursor: pointer;
   font-size: 12px;
   text-indent: 5px;
@@ -468,7 +483,12 @@ ul#piano li .blackKey span.blackKeyActive {
   position: absolute;
   text-align: center;
   background-color: transparent;
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
+  transition: 300ms ease background-color;
+}
+
+#keyboardWrapper summary:hover {
+  background-color: rgb(155 155 155 / 10%);
 }
 
 #container {
@@ -490,13 +510,14 @@ ul#piano li .blackKey span.blackKeyActive {
 
 #keyboard li {
   margin: 0;
-  color: #555;
+  color: #333;
   float: left;
   width: 48px;
   height: 42px;
   font-size: 12px;
   cursor: pointer;
   overflow: hidden;
+  font-weight: 600;
   line-height: 42px;
   position: relative;
   text-align: center;
@@ -667,7 +688,7 @@ ul#piano li .blackKey span.blackKeyActive {
   position: absolute;
   background-color: #FFF;
   box-shadow: 0 0 0 0 #000;
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
 }
 
 #inputBox {
@@ -688,7 +709,7 @@ ul#piano li .blackKey span.blackKeyActive {
   border-bottom: none;
   border: 1px solid #FFFFFF;
   background-color: #404040;
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
 }
 
 #inputBox table, #deleteBox table {
@@ -716,7 +737,7 @@ ul#piano li .blackKey span.blackKeyActive {
   text-align: center;
   display: inline-block;
   background-color: #404040;
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
 }
 
 #inputBox #txtSaveRecordFile {
@@ -742,12 +763,17 @@ ul#piano li .blackKey span.blackKeyActive {
 
 .toolbar div {
 	padding: 0;
-	width: 32px;
-	height: 42px;
+	width: 38px;
+	height: 48px;
 	cursor: pointer;
-	line-height: 42px;
+	line-height: 48px;
 	text-align: center;
+  transition: 300ms ease all;
 	background-color: transparent;
+}
+
+.toolbar div:hover {
+  background-color: rgb(155 155 155 / 10%);
 }
 
 .toolbar div svg {
