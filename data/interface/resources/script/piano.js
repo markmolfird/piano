@@ -1,8 +1,10 @@
+/* mouse */
+
 piano.addEventListener("mouseover", function (e) {
   if (config.app.options.recongizeSequenceMove === true) {
     if (e.target.className === "anchor") e.target.className = "anchor active";
     /*  */
-    var audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
+    const audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
     if (audio) {
       window.clearInterval(config.app.options.interval);
       audio.currentTime = 0;
@@ -21,7 +23,7 @@ piano.addEventListener("mousedown", function (e) {
   if (e.target.className === "blackKey") e.target.firstChild.className = "blackKeyActive";
   if (config.app.engine.audio.sequencer.recording) config.app.engine.audio.sequencer.addNoteOn(e.target.getAttribute("data-note"));
   /*  */
-  var audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
+  const audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
   if (audio) {
     window.clearInterval(config.app.options.interval);
     audio.currentTime = 0;
@@ -34,12 +36,13 @@ piano.addEventListener("mouseout", function (e) {
   if (config.app.options.recongizeSequenceMove === true) {
     if (e.target.className === "anchor active") e.target.className = "anchor";
     /*  */
-    var audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
+    const audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
     if (audio) {
-      var counter = 100;
+      let counter = 100;
       config.app.options.interval = window.setInterval(function () {
-        if (counter === 1) window.clearInterval(config.app.options.interval);
-        else {
+        if (counter === 1) {
+          window.clearInterval(config.app.options.interval);
+        } else {
           counter = counter - 1;
           if (audio.volume > 0) {
             audio.volume = audio.volume - 0.01 > 0 ? audio.volume - 0.01 : audio.volume;
@@ -60,12 +63,13 @@ piano.addEventListener("mouseup", function (e) {
   if (config.app.engine.audio.sequencer.recording) config.app.engine.audio.sequencer.addNoteOff(e.target.getAttribute("data-note"));
   /*  */
   if (!config.app.options.sustainFlag) {
-    var audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
+    const audio = config.app.engine.audio.manager.getAudio(e.target.getAttribute("data-note"));
     if (audio) {
-      var counter = 100;
+      let counter = 100;
       config.app.options.interval = window.setInterval(function () {
-        if (counter === 1) window.clearInterval(config.app.options.interval);
-        else {
+        if (counter === 1) {
+          window.clearInterval(config.app.options.interval);
+        } else {
           counter = counter - 1;
           if (audio.volume > 0) {
             audio.volume = audio.volume - 0.01 > 0 ? audio.volume - 0.01 : audio.volume;
@@ -79,13 +83,13 @@ piano.addEventListener("mouseup", function (e) {
 /* touch */
 
 piano.addEventListener("touchmove", function (e) {
-  var touches = e.changedTouches;
-  var current = document.elementFromPoint(touches[0].pageX, touches[0].pageY);
+  const touches = e.changedTouches;
+  const current = document.elementFromPoint(touches[0].pageX, touches[0].pageY);
   /*  */
   if (current.className === "anchor") {
     current.className = "anchor active";
     /*  */
-    var audio = config.app.engine.audio.manager.getAudio(current.getAttribute("data-note"));
+    const audio = config.app.engine.audio.manager.getAudio(current.getAttribute("data-note"));
     if (audio) {
       window.clearInterval(config.app.options.interval);
       audio.currentTime = 0;
@@ -94,7 +98,7 @@ piano.addEventListener("touchmove", function (e) {
     }
   }
   /*  */
-  for (var i = 0; i < keyNodes.length; i++) {
+  for (let i = 0; i < keyNodes.length; i++) {
     if (keyNodes[i] !== current) {
       keyNodes[i].className = "anchor";
     }
@@ -105,8 +109,8 @@ piano.addEventListener("touchstart", function (e) {
   e.preventDefault();
   e.stopPropagation();
   /*  */
-  var touches = e.changedTouches;
-  for (var i = 0; i < touches.length; i++) {
+  const touches = e.changedTouches;
+  for (let i = 0; i < touches.length; i++) {
     if (touches[i].target.className === "blackKey") {
       touches[i].target.firstChild.className = "blackKeyActive";
     }
@@ -117,7 +121,7 @@ piano.addEventListener("touchstart", function (e) {
     };
   }
   /*  */
-  var audio = config.app.engine.audio.manager.getAudio(e.changedTouches[0].target.getAttribute("data-note"));
+  const audio = config.app.engine.audio.manager.getAudio(e.changedTouches[0].target.getAttribute("data-note"));
   if (audio) {
     window.clearInterval(config.app.options.interval);
     audio.currentTime = 0;
@@ -135,9 +139,9 @@ piano.addEventListener("touchend", function (e) {
   e.stopPropagation();
   /*  */
   if (!config.app.options.sustainFlag) {
-    var audio = config.app.engine.audio.manager.getAudio(e.changedTouches[0].target.getAttribute("data-note"));
+    const audio = config.app.engine.audio.manager.getAudio(e.changedTouches[0].target.getAttribute("data-note"));
     if (audio) {
-      var counter = 100;
+      let counter = 100;
       config.app.options.interval = window.setInterval(function () {
         if (counter === 1) {
           window.clearInterval(config.app.options.interval);
@@ -155,7 +159,7 @@ piano.addEventListener("touchend", function (e) {
     config.app.engine.audio.sequencer.addNoteOff(e.target.getAttribute("data-note"));
   }
   /*  */
-  var touches = event.changedTouches;
+  const touches = event.changedTouches;
   if (touches[0].target.className === "anchor active") {
     touches[0].target.className = "anchor";
     config.app.options.recongizeSequenceMove = false;

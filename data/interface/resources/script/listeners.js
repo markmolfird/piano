@@ -10,6 +10,10 @@ btnNoDeleteFile.addEventListener("click", function () {
   deleteBoxWrapper.style.display = "none";
 });
 
+keyboardWrapper.querySelector("details").addEventListener("click", function () {
+  config.storage.write("toggleKeyboard", !this.open);
+});
+
 lnkClose.addEventListener("click", function () {
   sidebar.style.right = "-305px";
   transparentShadow.style.display = "none";
@@ -47,7 +51,7 @@ menuIcon.addEventListener("click", function (e) {
 }, false);
 
 btnYesDeleteFile.addEventListener("click", function () {
-  var key = config.app.options.deletedFileTemp;
+  const key = config.app.options.deletedFileTemp;
   /*  */
   config.storage.write(key, null);
   deleteBoxWrapper.style.display = "none";
@@ -83,9 +87,11 @@ minusSign.addEventListener("click", function (e) {
 });
 
 btnSaveRecordFile.addEventListener("click", function () {
-  var fileName = txtSaveRecordFile.value;
-  if (!fileName) txtSaveRecordFile.style.borderColor = "#ba0000";
-  else {
+  const fileName = txtSaveRecordFile.value;
+  /*  */
+  if (!fileName) {
+    txtSaveRecordFile.style.borderColor = "#ba0000";
+  } else {
     inputBoxWrapper.style.display = "none";
     txtSaveRecordFile.style.borderColor = '';
     config.app.engine.audio.sequencer.SaveRecord(fileName);
@@ -128,16 +134,16 @@ showKeyboard.addEventListener("click", function () {
 smallPiano.addEventListener("click", function (e) {
   e.preventDefault();
   /*  */
-  var handleWidth = handle.clientWidth;
-  var tempLeft = e.offsetX - (handleWidth / 2);
-  var transformProperty = config.app.methods.supported.properties.name(config.app.options.transform);
-  var pianoMovement = (config.app.options.pianoWidth - mainSectionWidth) / (smallPianoWidth - handleWidth);
+  let handleWidth = handle.clientWidth;
+  let tempLeft = e.offsetX - (handleWidth / 2);
+  let transformProperty = config.app.methods.supported.properties.name(config.app.options.transform);
+  let pianoMovement = (config.app.options.pianoWidth - mainSectionWidth) / (smallPianoWidth - handleWidth);
   /*  */
   if (tempLeft <= 0) handle.style.left = "0";
   else if (e.offsetX > smallPianoWidth - handleWidth) handle.style.left = smallPianoWidth - handleWidth + "px";
   else handle.style.left = e.offsetX - (handleWidth / 2) + "px";
   /*  */
-  var handleLeft = parseFloat(handle.style.left);
+  let handleLeft = parseFloat(handle.style.left);
   piano.style[transformProperty] = "translate3d(".concat(-handleLeft * pianoMovement + "px,0,0)");
   config.app.options.handleIndexLarge = (Math.floor(handleLeft / ((smallPianoWidth - handleWidth) / config.app.options.maxIndexLarge)));
   config.app.options.handleIndexSmall = (Math.floor(handleLeft / ((smallPianoWidth - handleWidth) / config.app.options.maxIndexSmall)));
@@ -148,8 +154,8 @@ smallPiano.addEventListener("click", function (e) {
 tblRecordedFiles.addEventListener("click", function (e) {
   if (config.storage.read(e.target.id) !== undefined) {
     if (e.target.className === "playRecoredFile icon-play") {
-      var iconPlayes = tblRecordedFiles.querySelectorAll("span");
-      for (var i = 0; i < iconPlayes.length; i++) {
+      let iconPlayes = tblRecordedFiles.querySelectorAll("span");
+      for (let i = 0; i < iconPlayes.length; i++) {
         if (iconPlayes[i].className.indexOf("icon-stop") !== -1) {
           iconPlayes[i].className = "playRecoredFile icon-play";
         }
@@ -157,7 +163,7 @@ tblRecordedFiles.addEventListener("click", function (e) {
       /*  */
       e.target.className = "playRecoredFile icon-stop";
       config.app.options.nowPlayingRecoredFile = e.target;
-      var recoredFile = JSON.parse(config.storage.read(e.target.id));
+      let recoredFile = JSON.parse(config.storage.read(e.target.id));
       config.app.engine.audio.sequencer.LoadRecoredFile(recoredFile);
       /*  */
       if (config.app.engine.audio.sequencer.playing) {
@@ -193,9 +199,9 @@ record.addEventListener("click", function () {
     if (navigator.mediaDevices) {
       navigator.mediaDevices.enumerateDevices().then(function (info) {
         if (info && info.length) {
-          for (var i = 0; i < info.length; i++) {
+          for (let i = 0; i < info.length; i++) {
             if (info[i].kind === "audiooutput") {
-              var constraints = {
+              let constraints = {
                 "video": false,
                 "audio": {
                   "volume": 1.0,
@@ -218,13 +224,17 @@ record.addEventListener("click", function () {
                 });
                 /*  */
                 config.app.engine.audio.recorder.api.start();
-              }).catch(function () {});
+              }).catch(function (e) {
+                //console.error(e);
+              });
               /*  */
               break;
             }
           }
         }
-      }).catch(function () {});
+      }).catch(function (e) {
+        //console.error(e);
+      });
     }
   }
 });

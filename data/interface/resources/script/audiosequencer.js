@@ -1,23 +1,30 @@
 var AudioSequencer = function () {
-  var events = [];
-  var lastTime = 0;
-  var timeoutID = 0;
-  var instance = this;
+  let events = [];
+  let lastTime = 0;
+  let timeoutID = 0;
+  let instance = this;
   this.playing = false;
   this.recording = false;
   /*  */
-  var playbackHandler = undefined;
-  var getCurrentTime = function () {return new Date().getTime()};
+  let playbackHandler = undefined;
+  let getCurrentTime = function () {
+    return new Date().getTime();
+  };
   /*  */
-  var addNoteEvent = function (note, e) {
-    var curTime = getCurrentTime();
-    events.push({"event": e, "note": note, "deltaTime": (curTime - lastTime)});
+  let addNoteEvent = function (note, e) {
+    let curTime = getCurrentTime();
+    /*  */
+    events.push({
+      "event": e, 
+      "note": note, 
+      "deltaTime": curTime - lastTime
+    });
     /*  */
     lastTime = curTime;
   };
   /*  */
-  var playEvent = function (index) {
-    var event = events[index];
+  let playEvent = function (index) {
+    let event = events[index];
     playbackHandler(event.event, event.note);
     index++;
     /*  */
@@ -25,7 +32,9 @@ var AudioSequencer = function () {
       timeoutID = setTimeout(function () {
         playEvent(index);
       }, events[index].deltaTime);
-    } else instance.playing = false;
+    } else {
+      instance.playing = false;
+    }
   };
   /*  */
   this.addNoteOn = function (note) {
@@ -63,8 +72,12 @@ var AudioSequencer = function () {
   this.stopRecording = function () {
     if (this.recording) {
       this.recording = false;
-      var curTime = getCurrentTime();
-      events.push({"deltaTime": curTime - lastTime, "event": AudioSequencer.eventCodes.endOfTrack});
+      let curTime = getCurrentTime();
+      /*  */
+      events.push({
+        "deltaTime": curTime - lastTime, 
+        "event": AudioSequencer.eventCodes.endOfTrack
+      });
     }
   };
   /*  */
@@ -84,7 +97,12 @@ var AudioSequencer = function () {
     if (!this.recording && !this.playing) {
       events = [];
       this.recording = true;
-      events.push({"deltaTime": 0, "event": AudioSequencer.eventCodes.cuePoint});
+      /*  */
+      events.push({
+        "deltaTime": 0, 
+        "event": AudioSequencer.eventCodes.cuePoint
+      });
+      /*  */
       lastTime = getCurrentTime();
       return true;
     }

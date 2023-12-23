@@ -1,5 +1,5 @@
 var CreateAudio = function (path, name, onloaded, onerror) {
-  var audio = new Audio();
+  const audio = new Audio();
   /*  */
   audio.addEventListener("canplaythrough", function () {
     if (onloaded) onloaded(audio);
@@ -17,26 +17,28 @@ var CreateAudio = function (path, name, onloaded, onerror) {
 };
 
 var AudioManager = function (path) {
-  var audios = {};
+  const audios = {};
   path = path || '';
   /*  */
   this.loadAudio = function () {
-    var count = 0, loaded = 0, error = false;
-    var all = document.querySelectorAll(".note");
+    let count = 0, loaded = 0, error = false;
+    let all = document.querySelectorAll(".note");
     /*  */
-    for (var i = 0; i < all.length; i++) {
+    for (let i = 0; i < all.length; i++) {
       count++;
-      var noteName = all[i].getAttribute("data-note");
+      let noteName = all[i].getAttribute("data-note");
       this.getAudio(noteName);
     }
   }
   /*  */
   this.getAudio = function (name, onloaded, onerror) {
-    var audio = audios[name];
+    let audio = audios[name];
     if (!audio) {
       audio = CreateAudio(path, name, onloaded, onerror);
       audios[name] = audio;
-    } else if (onloaded) onloaded(audio);
+    } else if (onloaded) {
+      onloaded(audio);
+    }
     /*  */
     return audio;
   };

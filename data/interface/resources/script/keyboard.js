@@ -1,8 +1,8 @@
-var intervals = [];
-var noteX = undefined;
+let intervals = [];
+let noteX = undefined;
 
 var playkeynote = function (note, i) {
-  var audio = config.app.engine.audio.manager.getAudio(note.getAttribute("data-note"));
+  const audio = config.app.engine.audio.manager.getAudio(note.getAttribute("data-note"));
   window.clearInterval(intervals[i]);
   audio.currentTime = 0;
   audio.volume = 1.0;
@@ -11,11 +11,13 @@ var playkeynote = function (note, i) {
 
 var stopkeynote = function (note, i) {
   if (config.app.options.sustainFlag === false) {
-    var audio = config.app.engine.audio.manager.getAudio(note.getAttribute("data-note"));
-    var counter = 100;
+    const audio = config.app.engine.audio.manager.getAudio(note.getAttribute("data-note"));
+    /*  */
+    let counter = 100;
     intervals[i] = setInterval(function () {
-      if (counter === 1) clearInterval(intervals);
-      else {
+      if (counter === 1) {
+        clearInterval(intervals);
+      } else {
         counter = counter - 1;
         if (audio.volume > 0) {
           audio.volume = (audio.volume - 0.01 > 0) ? audio.volume - 0.01 : audio.volume;
@@ -25,291 +27,359 @@ var stopkeynote = function (note, i) {
   }
 };
 
-var keyA0 = document.getElementById("keyA0");
-var noteA0 = document.getElementById("noteA0");
+keyboard.addEventListener("mouseout", function (e) {
+  if (e.target.className === "keyboardActive") {
+    e.target.className = '';
+  }
+});
+
+keyboard.addEventListener("mouseup", function (e) {
+  if (e.target.id) {
+    e.target.className = '';
+    if (noteX) noteX.className = "anchor";
+    if (noteX) stopkeynote(noteX, 1);
+    if (config.app.engine.audio.sequencer.recording) {
+      config.app.engine.audio.sequencer.addNoteOff(e.target.id.substring(3, 5));
+    }
+  }
+});
+
+keyboard.addEventListener("mousedown", function (e) {
+  if (e.target.id) {
+    e.target.className = "keyboardActive";
+    noteX = document.getElementById("note" + e.target.id.substring(3, 5));
+    /*  */
+    if (noteX) noteX.className = "anchor active";
+    if (noteX) playkeynote(noteX, 1);
+    if (config.app.engine.audio.sequencer.recording) {
+      config.app.engine.audio.sequencer.addNoteOn(e.target.id.substring(3, 5));
+    }
+  }
+  /*  */
+  e.stopPropagation();
+});
+
+const keyA0 = document.getElementById("keyA0");
+const noteA0 = document.getElementById("noteA0");
 var noteA0Flag = false;
 
-var keyB0 = document.getElementById("keyB0");
-var noteB0 = document.getElementById("noteB0");
+const keyB0 = document.getElementById("keyB0");
+const noteB0 = document.getElementById("noteB0");
 var noteB0Flag = false;
 
-var keyC1 = document.getElementById("keyC1");
-var noteC1 = document.getElementById("noteC1");
+const keyC1 = document.getElementById("keyC1");
+const noteC1 = document.getElementById("noteC1");
 var noteC1Flag = false;
 
-var keyD1 = document.getElementById("keyD1");
-var noteD1 = document.getElementById("noteD1");
+const keyD1 = document.getElementById("keyD1");
+const noteD1 = document.getElementById("noteD1");
 var noteD1Flag = false;
 
-var keyE1 = document.getElementById("keyE1");
-var noteE1 = document.getElementById("noteE1");
+const keyE1 = document.getElementById("keyE1");
+const noteE1 = document.getElementById("noteE1");
 var noteE1Flag = false;
 
-var keyF1 = document.getElementById("keyF1");
-var noteF1 = document.getElementById("noteF1");
+const keyF1 = document.getElementById("keyF1");
+const noteF1 = document.getElementById("noteF1");
 var noteF1Flag = false;
 
-var keyG1 = document.getElementById("keyG1");
-var noteG1 = document.getElementById("noteG1");
+const keyG1 = document.getElementById("keyG1");
+const noteG1 = document.getElementById("noteG1");
 var noteG1Flag = false;
 
-var keyA1 = document.getElementById("keyA1");
-var noteA1 = document.getElementById("noteA1");
+const keyA1 = document.getElementById("keyA1");
+const noteA1 = document.getElementById("noteA1");
 var noteA1Flag = false;
 
-var keyB1 = document.getElementById("keyB1");
-var noteB1 = document.getElementById("noteB1");
+const keyB1 = document.getElementById("keyB1");
+const noteB1 = document.getElementById("noteB1");
 var noteB1Flag = false;
 
-var keyC2 = document.getElementById("keyC2");
-var noteC2 = document.getElementById("noteC2");
+const keyC2 = document.getElementById("keyC2");
+const noteC2 = document.getElementById("noteC2");
 var noteC2Flag = false;
 
-var keyD2 = document.getElementById("keyD2");
-var noteD2 = document.getElementById("noteD2");
+const keyD2 = document.getElementById("keyD2");
+const noteD2 = document.getElementById("noteD2");
 var noteD2Flag = false;
 
-var keyE2 = document.getElementById("keyE2");
-var noteE2 = document.getElementById("noteE2");
+const keyE2 = document.getElementById("keyE2");
+const noteE2 = document.getElementById("noteE2");
 var noteE2Flag = false;
 
-var keyF2 = document.getElementById("keyF2");
-var noteF2 = document.getElementById("noteF2");
+const keyF2 = document.getElementById("keyF2");
+const noteF2 = document.getElementById("noteF2");
 var noteF2Flag = false;
 
-var keyG2 = document.getElementById("keyG2");
-var noteG2 = document.getElementById("noteG2");
+const keyG2 = document.getElementById("keyG2");
+const noteG2 = document.getElementById("noteG2");
 var noteG2Flag = false;
 
-var keyA2 = document.getElementById("keyA2");
-var noteA2 = document.getElementById("noteA2");
+const keyA2 = document.getElementById("keyA2");
+const noteA2 = document.getElementById("noteA2");
 var noteA2Flag = false;
 
-var keyB2 = document.getElementById("keyB2");
-var noteB2 = document.getElementById("noteB2");
+const keyB2 = document.getElementById("keyB2");
+const noteB2 = document.getElementById("noteB2");
 var noteB2Flag = false;
 
-var keyC3 = document.getElementById("keyC3");
-var noteC3 = document.getElementById("noteC3");
+const keyC3 = document.getElementById("keyC3");
+const noteC3 = document.getElementById("noteC3");
 var noteC3Flag = false;
 
-var keyD3 = document.getElementById("keyD3");
-var noteD3 = document.getElementById("noteD3");
+const keyD3 = document.getElementById("keyD3");
+const noteD3 = document.getElementById("noteD3");
 var noteD3Flag = false;
 
-var keyE3 = document.getElementById("keyE3");
-var noteE3 = document.getElementById("noteE3");
+const keyE3 = document.getElementById("keyE3");
+const noteE3 = document.getElementById("noteE3");
 var noteE3Flag = false;
 
-var keyF3 = document.getElementById("keyF3");
-var noteF3 = document.getElementById("noteF3");
+const keyF3 = document.getElementById("keyF3");
+const noteF3 = document.getElementById("noteF3");
 var noteF3Flag = false;
 
-var keyG3 = document.getElementById("keyG3");
-var noteG3 = document.getElementById("noteG3");
+const keyG3 = document.getElementById("keyG3");
+const noteG3 = document.getElementById("noteG3");
 var noteG3Flag = false;
 
-var keyA3 = document.getElementById("keyA3");
-var noteA3 = document.getElementById("noteA3");
+const keyA3 = document.getElementById("keyA3");
+const noteA3 = document.getElementById("noteA3");
 var noteA3Flag = false;
 
-var keyB3 = document.getElementById("keyB3");
-var noteB3 = document.getElementById("noteB3");
+const keyB3 = document.getElementById("keyB3");
+const noteB3 = document.getElementById("noteB3");
 var noteB3Flag = false;
 
-var keyC4 = document.getElementById("keyC4");
-var noteC4 = document.getElementById("noteC4");
+const keyC4 = document.getElementById("keyC4");
+const noteC4 = document.getElementById("noteC4");
 var noteC4Flag = false;
 
-var keyD4 = document.getElementById("keyD4");
-var noteD4 = document.getElementById("noteD4");
+const keyD4 = document.getElementById("keyD4");
+const noteD4 = document.getElementById("noteD4");
 var noteD4Flag = false;
 
-var keyE4 = document.getElementById("keyE4");
-var noteE4 = document.getElementById("noteE4");
+const keyE4 = document.getElementById("keyE4");
+const noteE4 = document.getElementById("noteE4");
 var noteE4Flag = false;
 
-var keyF4 = document.getElementById("keyF4");
-var noteF4 = document.getElementById("noteF4");
+const keyF4 = document.getElementById("keyF4");
+const noteF4 = document.getElementById("noteF4");
 var noteF4Flag = false;
 
-var keyG4 = document.getElementById("keyG4");
-var noteG4 = document.getElementById("noteG4");
+const keyG4 = document.getElementById("keyG4");
+const noteG4 = document.getElementById("noteG4");
 var noteG4Flag = false;
 
-var keyA4 = document.getElementById("keyA4");
-var noteA4 = document.getElementById("noteA4");
+const keyA4 = document.getElementById("keyA4");
+const noteA4 = document.getElementById("noteA4");
 var noteA4Flag = false;
 
-var keyB4 = document.getElementById("keyB4");
-var noteB4 = document.getElementById("noteB4");
+const keyB4 = document.getElementById("keyB4");
+const noteB4 = document.getElementById("noteB4");
 var noteB4Flag = false;
 
-var keyC5 = document.getElementById("keyC5");
-var noteC5 = document.getElementById("noteC5");
+const keyC5 = document.getElementById("keyC5");
+const noteC5 = document.getElementById("noteC5");
 var noteC5Flag = false;
 
-var keyD5 = document.getElementById("keyD5");
-var noteD5 = document.getElementById("noteD5");
+const keyD5 = document.getElementById("keyD5");
+const noteD5 = document.getElementById("noteD5");
 var noteD5Flag = false;
 
-var keyE5 = document.getElementById("keyE5");
-var noteE5 = document.getElementById("noteE5");
+const keyE5 = document.getElementById("keyE5");
+const noteE5 = document.getElementById("noteE5");
 var noteE5Flag = false;
 
-var keyF5 = document.getElementById("keyF5");
-var noteF5 = document.getElementById("noteF5");
+const keyF5 = document.getElementById("keyF5");
+const noteF5 = document.getElementById("noteF5");
 var noteF5Flag = false;
 
-var keyG5 = document.getElementById("keyG5");
-var noteG5 = document.getElementById("noteG5");
+const keyG5 = document.getElementById("keyG5");
+const noteG5 = document.getElementById("noteG5");
 var noteG5Flag = false;
 
-var keyA5 = document.getElementById("keyA5");
-var noteA5 = document.getElementById("noteA5");
+const keyA5 = document.getElementById("keyA5");
+const noteA5 = document.getElementById("noteA5");
 var noteA5Flag = false;
 
-var keyB5 = document.getElementById("keyB5");
-var noteB5 = document.getElementById("noteB5");
+const keyB5 = document.getElementById("keyB5");
+const noteB5 = document.getElementById("noteB5");
 var noteB5Flag = false;
 
-var keyC6 = document.getElementById("keyC6");
-var noteC6 = document.getElementById("noteC6");
+const keyC6 = document.getElementById("keyC6");
+const noteC6 = document.getElementById("noteC6");
 var noteC6Flag = false;
 
-var keyD6 = document.getElementById("keyD6");
-var noteD6 = document.getElementById("noteD6");
+const keyD6 = document.getElementById("keyD6");
+const noteD6 = document.getElementById("noteD6");
 var noteD6Flag = false;
 
-var keyE6 = document.getElementById("keyE6");
-var noteE6 = document.getElementById("noteE6");
+const keyE6 = document.getElementById("keyE6");
+const noteE6 = document.getElementById("noteE6");
 var noteE6Flag = false;
 
-var keyF6 = document.getElementById("keyF6");
-var noteF6 = document.getElementById("noteF6");
+const keyF6 = document.getElementById("keyF6");
+const noteF6 = document.getElementById("noteF6");
 var noteF6Flag = false;
 
-var keyG6 = document.getElementById("keyG6");
-var noteG6 = document.getElementById("noteG6");
+const keyG6 = document.getElementById("keyG6");
+const noteG6 = document.getElementById("noteG6");
 var noteG6Flag = false;
 
-var keyA6 = document.getElementById("keyA6");
-var noteA6 = document.getElementById("noteA6");
+const keyA6 = document.getElementById("keyA6");
+const noteA6 = document.getElementById("noteA6");
 var noteA6Flag = false;
 
-var keyB6 = document.getElementById("keyB6");
-var noteB6 = document.getElementById("noteB6");
+const keyB6 = document.getElementById("keyB6");
+const noteB6 = document.getElementById("noteB6");
 var noteB6Flag = false;
 
-var keyC7 = document.getElementById("keyC7");
-var noteC7 = document.getElementById("noteC7");
+const keyC7 = document.getElementById("keyC7");
+const noteC7 = document.getElementById("noteC7");
 var noteC7Flag = false;
 
-var keyD7 = document.getElementById("keyD7");
-var noteD7 = document.getElementById("noteD7");
+const keyD7 = document.getElementById("keyD7");
+const noteD7 = document.getElementById("noteD7");
 var noteD7Flag = false;
 
-var keyE7 = document.getElementById("keyE7");
-var noteE7 = document.getElementById("noteE7");
+const keyE7 = document.getElementById("keyE7");
+const noteE7 = document.getElementById("noteE7");
 var noteE7Flag = false;
 
-var keyF7 = document.getElementById("keyF7");
-var noteF7 = document.getElementById("noteF7");
+const keyF7 = document.getElementById("keyF7");
+const noteF7 = document.getElementById("noteF7");
 var noteF7Flag = false;
 
-var keyG7 = document.getElementById("keyG7");
-var noteG7 = document.getElementById("noteG7");
+const keyG7 = document.getElementById("keyG7");
+const noteG7 = document.getElementById("noteG7");
 var noteG7Flag = false;
 
-var keyA7 = document.getElementById("keyA7");
-var noteA7 = document.getElementById("noteA7");
+const keyA7 = document.getElementById("keyA7");
+const noteA7 = document.getElementById("noteA7");
 var noteA7Flag = false;
 
-var keyB7 = document.getElementById("keyB7");
-var noteB7 = document.getElementById("noteB7");
+const keyB7 = document.getElementById("keyB7");
+const noteB7 = document.getElementById("noteB7");
 var noteB7Flag = false;
 
-var keyC8 = document.getElementById("keyC8");
-var noteC8 = document.getElementById("noteC8");
+const keyC8 = document.getElementById("keyC8");
+const noteC8 = document.getElementById("noteC8");
 var noteC8Flag = false;
 
-var blacknote1 = document.getElementById("blacknote1");
+const blacknote1 = document.getElementById("blacknote1");
 var blacknote1Flag = false;
-var blacknote2 = document.getElementById("blacknote2");
+
+const blacknote2 = document.getElementById("blacknote2");
 var blacknote2Flag = false;
-var blacknote3 = document.getElementById("blacknote3");
+
+const blacknote3 = document.getElementById("blacknote3");
 var blacknote3Flag = false;
-var blacknote4 = document.getElementById("blacknote4");
+
+const blacknote4 = document.getElementById("blacknote4");
 var blacknote4Flag = false;
-var blacknote5 = document.getElementById("blacknote5");
+
+const blacknote5 = document.getElementById("blacknote5");
 var blacknote5Flag = false;
-var blacknote6 = document.getElementById("blacknote6");
+
+const blacknote6 = document.getElementById("blacknote6");
 var blacknote6Flag = false;
-var blacknote7 = document.getElementById("blacknote7");
+
+const blacknote7 = document.getElementById("blacknote7");
 var blacknote7Flag = false;
-var blacknote8 = document.getElementById("blacknote8");
+
+const blacknote8 = document.getElementById("blacknote8");
 var blacknote8Flag = false;
-var blacknote9 = document.getElementById("blacknote9");
+
+const blacknote9 = document.getElementById("blacknote9");
 var blacknote9Flag = false;
-var blacknote10 = document.getElementById("blacknote10");
+
+const blacknote10 = document.getElementById("blacknote10");
 var blacknote10Flag = false;
-var blacknote11 = document.getElementById("blacknote11");
+
+const blacknote11 = document.getElementById("blacknote11");
 var blacknote11Flag = false;
-var blacknote12 = document.getElementById("blacknote12");
+
+const blacknote12 = document.getElementById("blacknote12");
 var blacknote12Flag = false;
-var blacknote13 = document.getElementById("blacknote13");
+
+const blacknote13 = document.getElementById("blacknote13");
 var blacknote13Flag = false;
-var blacknote14 = document.getElementById("blacknote14");
+
+const blacknote14 = document.getElementById("blacknote14");
 var blacknote14Flag = false;
-var blacknote15 = document.getElementById("blacknote15");
+
+const blacknote15 = document.getElementById("blacknote15");
 var blacknote15Flag = false;
-var blacknote16 = document.getElementById("blacknote16");
+
+const blacknote16 = document.getElementById("blacknote16");
 var blacknote16Flag = false;
-var blacknote17 = document.getElementById("blacknote17");
+
+const blacknote17 = document.getElementById("blacknote17");
 var blacknote17Flag = false;
-var blacknote18 = document.getElementById("blacknote18");
+
+const blacknote18 = document.getElementById("blacknote18");
 var blacknote18Flag = false;
-var blacknote19 = document.getElementById("blacknote19");
+
+const blacknote19 = document.getElementById("blacknote19");
 var blacknote19Flag = false;
-var blacknote20 = document.getElementById("blacknote20");
+
+const blacknote20 = document.getElementById("blacknote20");
 var blacknote20Flag = false;
-var blacknote21 = document.getElementById("blacknote21");
+
+const blacknote21 = document.getElementById("blacknote21");
 var blacknote21Flag = false;
-var blacknote22 = document.getElementById("blacknote22");
+
+const blacknote22 = document.getElementById("blacknote22");
 var blacknote22Flag = false;
-var blacknote23 = document.getElementById("blacknote23");
+
+const blacknote23 = document.getElementById("blacknote23");
 var blacknote23Flag = false;
-var blacknote24 = document.getElementById("blacknote24");
+
+const blacknote24 = document.getElementById("blacknote24");
 var blacknote24Flag = false;
-var blacknote25 = document.getElementById("blacknote25");
+
+const blacknote25 = document.getElementById("blacknote25");
 var blacknote25Flag = false;
-var blacknote26 = document.getElementById("blacknote26");
+
+const blacknote26 = document.getElementById("blacknote26");
 var blacknote26Flag = false;
-var blacknote27 = document.getElementById("blacknote27");
+
+const blacknote27 = document.getElementById("blacknote27");
 var blacknote27Flag = false;
-var blacknote28 = document.getElementById("blacknote28");
+
+const blacknote28 = document.getElementById("blacknote28");
 var blacknote28Flag = false;
-var blacknote29 = document.getElementById("blacknote29");
+
+const blacknote29 = document.getElementById("blacknote29");
 var blacknote29Flag = false;
-var blacknote30 = document.getElementById("blacknote30");
+
+const blacknote30 = document.getElementById("blacknote30");
 var blacknote30Flag = false;
-var blacknote31 = document.getElementById("blacknote31");
+
+const blacknote31 = document.getElementById("blacknote31");
 var blacknote31Flag = false;
-var blacknote32 = document.getElementById("blacknote32");
+
+const blacknote32 = document.getElementById("blacknote32");
 var blacknote32Flag = false;
-var blacknote33 = document.getElementById("blacknote33");
+
+const blacknote33 = document.getElementById("blacknote33");
 var blacknote33Flag = false;
-var blacknote34 = document.getElementById("blacknote34");
+
+const blacknote34 = document.getElementById("blacknote34");
 var blacknote34Flag = false;
-var blacknote35 = document.getElementById("blacknote35");
+
+const blacknote35 = document.getElementById("blacknote35");
 var blacknote35Flag = false;
-var blacknote36 = document.getElementById("blacknote36");
+
+const blacknote36 = document.getElementById("blacknote36");
 var blacknote36Flag = false;
 
 document.addEventListener("keydown", function (e) {
   if (inputBoxWrapper.style.display === "block") return;
   e = e || window.event;
-  var charCode = e.keyCode;
+  /*  */
+  const charCode = e.keyCode;
   if (e.shiftKey) {
     switch (charCode) {
       case 192:
@@ -1293,7 +1363,8 @@ document.addEventListener("keydown", function (e) {
 
 document.addEventListener("keyup", function (e) {
   e = e || window.event;
-  var charCode = e.keyCode || e.which;
+  /*  */
+  const charCode = e.keyCode || e.which;
   if (e.shiftKey) {
     switch (charCode) {
       case 192:
@@ -1843,37 +1914,5 @@ document.addEventListener("keyup", function (e) {
       default:
         break;
     }
-  }
-});
-
-keyboard.addEventListener("mousedown", function (e) {
-  if (e.target.id) {
-    e.target.className = "keyboardActive";
-    noteX = document.getElementById("note" + e.target.id.substring(3, 5));
-    /*  */
-    if (noteX) noteX.className = "anchor active";
-    if (noteX) playkeynote(noteX, 1);
-    if (config.app.engine.audio.sequencer.recording) {
-      config.app.engine.audio.sequencer.addNoteOn(e.target.id.substring(3, 5));
-    }
-  }
-  /*  */
-  e.stopPropagation();
-});
-
-keyboard.addEventListener("mouseup", function (e) {
-  if (e.target.id) {
-    e.target.className = '';
-    if (noteX) noteX.className = "anchor";
-    if (noteX) stopkeynote(noteX, 1);
-    if (config.app.engine.audio.sequencer.recording) {
-      config.app.engine.audio.sequencer.addNoteOff(e.target.id.substring(3, 5));
-    }
-  }
-});
-
-keyboard.addEventListener("mouseout", function (e) {
-  if (e.target.className === "keyboardActive") {
-    e.target.className = '';
   }
 });
