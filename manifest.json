@@ -1,9 +1,8 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.6",
   "name": "Piano Prime",
   "manifest_version": 3,
   "offline_enabled": true,
-  "short_name": "piano-prime",
   "permissions": ["storage", "contextMenus"],
   "homepage_url": "https://mybrowseraddon.com/piano.html",
   "description": "An easy-to-use and lite piano app for your browser!",
