@@ -1,3 +1,35 @@
+class AudioManager {
+  constructor (path) {
+    const audios = {};
+    path = path||'';
+    /*  */
+    this.loadAudio = function () {
+      let count = 0;
+      let loaded = 0;
+      let error = false;
+      let all = document.querySelectorAll(".note");
+      /*  */
+      for (let i = 0; i < all.length; i++) {
+        count++;
+        let noteName = all[i].getAttribute("data-note");
+        this.getAudio(noteName);
+      }
+    };
+    /*  */
+    this.getAudio = function (name, onloaded, onerror) {
+      let audio = audios[name];
+      if (!audio) {
+        audio = CreateAudio(path, name, onloaded, onerror);
+        audios[name] = audio;
+      } else if (onloaded) {
+        onloaded(audio);
+      }
+      /*  */
+      return audio;
+    };
+  }
+}
+
 var CreateAudio = function (path, name, onloaded, onerror) {
   const audio = new Audio();
   /*  */
@@ -14,32 +46,4 @@ var CreateAudio = function (path, name, onloaded, onerror) {
   else if (config.LOG) console.error(" > Error src", name);
   /*  */
   return audio;
-};
-
-var AudioManager = function (path) {
-  const audios = {};
-  path = path || '';
-  /*  */
-  this.loadAudio = function () {
-    let count = 0, loaded = 0, error = false;
-    let all = document.querySelectorAll(".note");
-    /*  */
-    for (let i = 0; i < all.length; i++) {
-      count++;
-      let noteName = all[i].getAttribute("data-note");
-      this.getAudio(noteName);
-    }
-  }
-  /*  */
-  this.getAudio = function (name, onloaded, onerror) {
-    let audio = audios[name];
-    if (!audio) {
-      audio = CreateAudio(path, name, onloaded, onerror);
-      audios[name] = audio;
-    } else if (onloaded) {
-      onloaded(audio);
-    }
-    /*  */
-    return audio;
-  };
 };

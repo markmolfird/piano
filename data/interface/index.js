@@ -103,7 +103,11 @@ var config = {
         "manager": new AudioManager("resources/audio"),
         "recorder": {
           "api": null,
-          "result": {"url": null, "items": {}, "chunks": []}
+          "result": {
+            "url": null, 
+            "items": {}, 
+            "chunks": []
+          }
         }
       }
     },
@@ -123,7 +127,13 @@ var config = {
       "showKeyboardFlag": true,
       "nowPlayingRecoredFile": null,
       "recongizeSequenceMove": false,
-      "transform": ["transform", "msTransform", "mozTransform", "oTransform", "webkitTransform"]
+      "transform": [
+        "transform",
+        "oTransform",
+        "msTransform",
+        "mozTransform",
+        "webkitTransform"
+      ]
     },
     "load": function (restore) {
       config.app.options.numberOfKeys = config.app.methods.calculate.number.of.keys();
